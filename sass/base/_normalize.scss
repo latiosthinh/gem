@@ -1,0 +1,15 @@
+:root {
+	--font-sans : -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+	--font-serif: Georgia, Cambria, "Times New Roman", Times, serif;
+	--font-mono : Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+	--color-base   : #000000;
+	--color-base-w : #ffffff;
+	--color-accent : #fa7d08;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}

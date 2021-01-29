@@ -1,0 +1,39 @@
+$color-main     : #0F1550;
+$color-secondary: #307EED;
+
+%blue-light {
+	background: -moz-linear-gradient(top, #55adff 0%, #6473f8 100%);
+	background: -webkit-linear-gradient(top, #55adff 0%,#6473f8 100%);
+	background: linear-gradient(to bottom, #55adff 0%,#6473f8 100%);
+}
+
+%blue-dark {
+	background: -moz-linear-gradient(top, #203b9b 0%, #0f1550 67%);
+	background: -webkit-linear-gradient(top, #203b9b 0%,#0f1550 67%);
+	background: linear-gradient(to bottom, #203b9b 0%,#0f1550 67%);
+}
+
+%button-dark {
+	background: -moz-linear-gradient(top, #244cb4 0%, #162a73 100%);
+	background: -webkit-linear-gradient(top, #244cb4 0%,#162a73 100%);
+	background: linear-gradient(to bottom, #244cb4 0%,#162a73 100%);
+}
+
+%button-hover {
+	background: -moz-linear-gradient(top, #0ce2ff 0%, #0094ff 100%);
+	background: -webkit-linear-gradient(top, #0ce2ff 0%,#0094ff 100%);
+	background: linear-gradient(to bottom, #0ce2ff 0%,#0094ff 100%);
+}
+
+.txt-l {
+	font-weight: 300;
+}
+
+.txt-b {
+	font-weight: 500;
+}
+
+.txt-12 {
+	font-size: 12px;
+	font-weight: 300;
+}

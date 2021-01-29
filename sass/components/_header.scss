@@ -1,0 +1,33 @@
+.site-header {
+	padding: 40px 0;
+}
+
+.site-title {
+	position: relative;
+	cursor: pointer;
+	display: inline-block;
+
+	a {
+		position: inherit;
+		z-index: 2;
+	}
+
+	span {
+		display: block;
+		position: absolute;
+		width: 7px;
+		height: 7px;
+		background: var(--color-accent);
+		bottom: 10px;
+		right: -8px;
+		z-index: 0;
+		transform: translate( 0, 0 ) scale( 1 );
+		transition: .1s;
+	}
+
+	&:hover {
+		span {
+			transform: translate( -40px, -5px ) scale( 12, 5 );
+		}
+	}
+}

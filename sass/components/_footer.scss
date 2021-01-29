@@ -1,0 +1,14 @@
+.site-footer {
+	background: var(--color-base);
+	margin-top: 100px;
+}
+
+.site-info {
+	padding: 15px 0;
+	text-align: center;
+	color: var(--color-base-w);
+
+	a {
+		color: var(--color-accent);
+	}
+}

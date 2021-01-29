@@ -1,0 +1,101 @@
+.slogan {
+	margin: 70px 0 190px;
+
+	h2 {
+		font-size: 45px;
+		text-align: center;
+		font-weight: normal;
+		line-height: 1.3;
+	}
+	
+}
+
+.works {
+	margin-bottom: 100px;
+}
+
+.works-item {
+	position: relative;
+
+	&__content {
+		position: absolute;
+		top: 45px;
+		left: 60px;
+	}
+
+	> a {
+		position: absolute;
+		display: block;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		border: 0px solid var(--color-base-w);
+		transition: .2s;
+	}
+
+	img {
+		vertical-align: middle;
+		max-width: 100%;
+		opacity: 0.8;
+		transition: .2s;
+	}
+
+	.entry-title {
+		font-size: 26px;
+	}
+
+	.entry-meta {
+		position: relative;
+	}
+
+	.tags {
+		transition: 0.2s;
+	}
+
+	.explore {
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		transition: .2s;
+	}
+
+	&:hover {
+		> a {
+			border-top: 20px solid var(--color-base-w);
+			border-bottom: 10px solid var(--color-base-w);
+			border-left: 20px solid var(--color-base-w);
+			border-right: 20px solid var(--color-base-w);
+		}
+
+		img {
+			opacity: 1;
+		}
+
+		.tags {
+			opacity: 0;
+		}
+
+		.explore {
+			opacity: 1;
+		}
+	}
+
+	@media all and (max-width: 991px) {
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+}
+
+.partners {
+	.row {
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.wp-block-image img {
+		object-fit: contain;
+		max-height: 50px;
+	}
+}
