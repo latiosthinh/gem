@@ -12,7 +12,7 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
-			<p class="site-info">&copy; Copyright <?= the_date( 'Y' ) ?> by <a href="<?= home_url(); ?>">NOVUS</a></p>
+			<p class="site-info">&copy; Copyright <?= the_date( 'Y' ) ?> by <a href="<?= home_url(); ?>">WineAgency</a></p>
 	</footer>
 </main>
 

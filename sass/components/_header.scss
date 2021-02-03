@@ -1,33 +1,98 @@
 .site-header {
-	padding: 40px 0;
-}
+	padding-top: 30px;
+	padding-bottom: 30px;
+	position: fixed;
+	z-index: 20;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background: transparent;
 
-.site-title {
-	position: relative;
-	cursor: pointer;
-	display: inline-block;
+	&.fixed {
+		background: #fff;
 
-	a {
-		position: inherit;
-		z-index: 2;
-	}
+		.logo {
+			filter: none;
+		}
 
-	span {
-		display: block;
-		position: absolute;
-		width: 7px;
-		height: 7px;
-		background: var(--color-accent);
-		bottom: 10px;
-		right: -8px;
-		z-index: 0;
-		transform: translate( 0, 0 ) scale( 1 );
-		transition: .1s;
-	}
+		#nav-control, #search-control {
+			svg path {
+				fill: #000;
+			}
+		}
 
-	&:hover {
-		span {
-			transform: translate( -40px, -5px ) scale( 12, 5 );
+		.trp-language-switcher > div {
+			background-image: url(images/arrow-down-black.svg);
+
+			> a {
+				color: #000000;
+			}
 		}
 	}
+
+	.logo {
+		display: block;
+		width: 120px;
+		filter: brightness(0) invert(1);
+	}
+
+	nav {
+		display: flex;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+}
+
+#nav-control {
+	width: 100px;
+	height: 100px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 20;
+
+	& + div {
+		display: none;
+	}
+}
+
+.nav-cta {
+	display: flex;
+	align-items: center;
+}
+
+#search-control {
+	margin-left: 60px;
+}
+
+.trp-language-switcher {
+	> div {
+		background-color: transparent;
+		background-image: url( images/arrow-down.svg );
+		background-size: 10px 5px;
+		background-position: 35px 13px;
+		border: 0;
+
+		> a {
+			color: #ffffff;
+			font-weight: 500;
+			padding: 2px 2px 0 6px;
+			cursor: pointer !important;
+
+			&:hover {
+				background: $color-secondary;
+			}
+		}
+	}
+}
+
+#progress-bar {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 2px;
+	width: 100%;
+	--scroll: 0%;
+	background: linear-gradient( to right, $cyan var(--scroll), transparent 0 );
 }

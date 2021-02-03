@@ -94,7 +94,26 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 }
 
 function novus_cc_mime_types($mimes) {
-	$mimes['svg'] = 'image/svg+xml';
+	$mimes['svg']  = 'image/svg+xml';
+	$mimes['svgz'] = 'image/svg+xml';
+	$mimes['webp'] = 'image/webp';
 	return $mimes;
 }
 add_filter('upload_mimes', 'novus_cc_mime_types');
+
+function dequeue_jquery_migrate( $scripts ) {
+	if ( ! is_admin() && ! empty( $scripts->registered['jquery'] ) ) {
+		$scripts->registered['jquery']->deps = array_diff(
+			$scripts->registered['jquery']->deps,
+			[ 'jquery-migrate' ]
+		);
+	}
+}
+add_action( 'wp_default_scripts', 'dequeue_jquery_migrate' );
+
+function remove_jquery() {
+	if ( ! is_admin() ) {
+		wp_deregister_script( 'jquery' );
+	}
+}
+add_action( 'init', 'remove_jquery' );
