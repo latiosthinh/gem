@@ -1,14 +1,95 @@
 .site-footer {
-	background: var(--color-base);
-	margin-top: 100px;
+	background: linear-gradient(150deg, #244cb4 0%,#162a73 50%);
+	padding-bottom: 21px;
 }
 
-.site-info {
-	padding: 15px 0;
-	text-align: center;
-	color: var(--color-base-w);
+.gem-submit {
+	justify-content: flex-start !important;
+	padding-bottom: 0 !important;
+	padding-top: 12px;
+	border-bottom: 0 !important;
 
-	a {
-		color: var(--color-accent);
+	input {
+		position: absolute;
+		opacity: 0;
+	}
+}
+
+.newsletter {
+	padding-top: 60px;
+
+	form {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+
+		& > p:first-of-type {
+			width: 66%;
+		}
+	}
+
+	label {
+		display: flex;
+		height: 100%;
+		justify-content: space-between;
+		border-bottom: 1px solid #fff;
+		padding-bottom: 8px;
+		font-size: 20px;
+	}
+
+	.wpcf7-form-control-wrap {
+		width: 50%;
+	}
+
+	input[type=email] {
+		font-size: 16px;
+		background: transparent;
+		width: 100%;
+		height: 100%;
+		border: 0;
+		color: #ffffff;
+	}
+}
+
+.footer-widget {
+	margin-top: 60px;
+	color: #fff;
+
+	.logo {
+		display: block;
+		width: 210px;
+		margin-bottom: 40px;
+		filter: brightness(0) invert(1);
+	}
+
+	.social {
+		display: flex;
+		margin-top: 44px;
+
+		a {
+			width: 24px;
+			height: 24px;
+			margin-left: 15px;
+		}
+	}
+
+	.widget_nav_menu {
+		margin-top: 10%;
+
+		ul {
+			display: flex;
+			flex-wrap: wrap;
+
+			li {
+				flex: 0 0 33.3333%;
+				list-style: none;
+				margin-bottom: 40px;
+			}
+
+			a {
+				color: #ffffff;
+				font-weight: 500;
+			}
+		}
 	}
 }

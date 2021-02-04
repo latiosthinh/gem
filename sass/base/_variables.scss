@@ -2,6 +2,7 @@ $color-main     : #0F1550;
 $color-secondary: #307EED;
 $color-dark     : #293B7C;
 $color-grey     : #F2F2F2;
+$color-dot      : #C4C4C4;
 
 $cyan    : #55adff;
 $blue    : #307EED;
@@ -45,6 +46,14 @@ $dark-sea: #162a73;
 	font-weight: 300;
 }
 
+.txt-16 {
+	font-size: 16px;
+}
+
+.txt-20 {
+	font-size: 20px;
+}
+
 .fw-5 {
 	font-weight: 500;
 }
@@ -69,6 +78,10 @@ $dark-sea: #162a73;
 
 .align-center {
 	align-items: center;
+}
+
+.flex-column {
+	flex-direction: column;
 }
 
 .p-0 {
@@ -162,4 +175,18 @@ $dark-sea: #162a73;
 @keyframes ltr-2 {
 	0%, 100% { transform: translateX(-15%); }
 	50% { transform: translateX(15%); }
+}
+
+@keyframes fade {
+	0% { opacity: .6; }
+	100% { opacity: 1; }
+}
+
+@keyframes rect-1 {
+	0% { transform: translateY(10px); }
+	100% { opacity: 0; }
+}
+
+.required {
+	color: #E18700;
 }

@@ -16,7 +16,15 @@
 	<?php
 	$services = new WP_Query( [
 		'post_type'      => 'service',
-		'posts_per_page' => 3
+		'posts_per_page' => 3,
+		'tax_query'      => [
+			[
+				'taxonomy' => 'services-category',
+				'field'    => 'slug',
+				'terms'    => [ 'special' ],
+				'operator' => 'IN'
+			]
+		]
 	] );
 
 	if ( $services->have_posts() ) :
@@ -28,7 +36,7 @@
 			<img src="<?php the_post_thumbnail_url( 'full' ) ?>" alt="<?= get_the_title() ?>">
 
 			<div class="entry-content">
-				<h3><?= get_the_title() ?></h3>
+				<h3><?= wordwrap( get_the_title(), 25, "<br>\n" ) ?></h3>
 				<p><?= get_the_excerpt() ?></p>
 
 				<a class="fw-5 cldark d-flex align-center" href="#">

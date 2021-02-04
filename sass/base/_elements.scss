@@ -57,3 +57,50 @@ img {
 	width: 100%;
 }
 
+.gem-slider {
+	position: relative;
+}
+
+.gem-item {
+	animation: fade .3s linear;
+}
+
+.gem-arrow {
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 2;
+	display: block;
+	width: 20px;
+}
+
+.gem-dots {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	.dot {
+		display: block;
+		width: 10px;
+		height: 10px;
+		border-radius: 50%;
+		margin: 0 12px;
+		cursor: pointer;
+		background: $color-dot;
+
+		&.active {
+			background: $color-secondary;
+		}
+	}
+}
+
+form {
+	i {
+		font-style: normal;
+	}
+}
+
+input {
+	outline: none;
+}

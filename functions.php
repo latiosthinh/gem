@@ -20,7 +20,12 @@ if ( ! function_exists( 'novus_setup' ) ) :
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'post-thumbnails' );
 
-		register_nav_menus( [ 'menu-1' => esc_html__( 'Primary', 'novus' )] );
+		register_nav_menus( 
+			[
+				'menu-1' => esc_html__( 'Primary', 'novus' ),
+				'menu-2' => esc_html__( 'Footer', 'novus' )
+			]
+		);
 		add_theme_support(
 			'html5',
 			[
@@ -74,6 +79,30 @@ function novus_widgets_init() {
 			'after_title'   => '</h2>',
 		]
 	);
+
+	register_sidebar(
+		[
+			'name'          => esc_html__( 'Footer Left', 'novus' ),
+			'id'            => 'sidebar-2',
+			'description'   => esc_html__( 'Add widgets here.', 'novus' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		],
+	);
+
+	register_sidebar(
+		[
+			'name'          => esc_html__( 'Footer Right', 'novus' ),
+			'id'            => 'sidebar-3',
+			'description'   => esc_html__( 'Add widgets here.', 'novus' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		],
+	);
 }
 add_action( 'widgets_init', 'novus_widgets_init' );
 
@@ -93,7 +122,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
-function novus_cc_mime_types($mimes) {
+function novus_cc_mime_types( $mimes ) {
 	$mimes['svg']  = 'image/svg+xml';
 	$mimes['svgz'] = 'image/svg+xml';
 	$mimes['webp'] = 'image/webp';
@@ -111,9 +140,15 @@ function dequeue_jquery_migrate( $scripts ) {
 }
 add_action( 'wp_default_scripts', 'dequeue_jquery_migrate' );
 
-function remove_jquery() {
-	if ( ! is_admin() ) {
-		wp_deregister_script( 'jquery' );
+add_filter( 'wp_enqueue_scripts', 'change_default_jquery', PHP_INT_MAX );
+function change_default_jquery() {
+	if ( ! is_home() ) {
+		return;
 	}
+	
+	wp_dequeue_style( 'wp-block-library' );
+    wp_dequeue_style( 'wp-block-library-theme' );
+    wp_dequeue_style( 'wc-block-style' );
+	wp_dequeue_script( 'jquery');
+	wp_deregister_script( 'jquery');   
 }
-add_action( 'init', 'remove_jquery' );
