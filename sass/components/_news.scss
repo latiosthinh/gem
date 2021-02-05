@@ -1,0 +1,196 @@
+.news-banner {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+}
+
+.news-items {
+	padding: 90px 0;
+
+	article {
+		background: $color-grey;
+		margin-bottom: 20px;
+
+		&:hover {
+			a {
+				color: $color-secondary;
+			}
+		}
+	}
+
+	a {
+		transition: .3s;
+
+		&:first-of-type {
+			color: #000;
+		}
+	}
+
+	span {
+		color: #888;
+	}
+
+	.news--big {
+		display: flex;
+
+		.entry-thumbnail {
+			width: 58%;
+			flex: 0 0 58%;
+		}
+
+		.entry-content {
+			padding-left: 40px;
+			padding-right: 40px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+
+		span {
+			margin: 24px 0 16px;
+		}
+
+		.readmore {
+			margin-top: 40px;
+		}
+	}
+
+	.news--small {
+		img {
+			height: 280px;
+		}
+
+		.entry-content {
+			padding: 16px 20px 20px;
+		}
+
+		h3 {
+			@include set-line( 2, 20 );
+			margin: 4px 0;
+		}
+
+		p {
+			@include set-line( 2, 16 );
+		}
+	}
+
+	.posts-pagination {
+		margin-top: 40px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-weight: 500;
+
+		.page-numbers {
+			margin: 0 15px;
+
+			&.current, &:hover {
+				color: $color-secondary;
+			}
+		}
+	}
+}
+
+.post-content {
+	padding-bottom: 90px;
+
+	article {
+		@media all and (min-width:1200px) {
+			padding-right: 50px;
+		}
+	}
+
+	aside {
+		@media all and (min-width:1200px) {
+			padding-left: 50px;
+		}
+
+		span {
+			color: #888;
+			margin-bottom: 4px;
+			display: block;
+		}
+
+		a {
+			color: #000;
+			margin-bottom: 30px;
+			display: block;
+
+			&:hover {
+				h4 {
+					color: $color-secondary;
+				}
+			}
+
+			span {
+				margin-top: 8px;
+			}
+
+			img {
+				height: 240px;
+				width: 100%;
+			}
+
+			&:not(:first-of-type) {
+				margin-bottom: 16px;
+				display: flex;
+
+				img {
+					height: 146px;
+					width: 50%;
+					flex: 0 0 50%;
+				}
+
+				.entry-title {
+					background: $color-grey;
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					padding: 0 12px;
+				}
+
+				h4 {
+					@include set-line( 3, 20 );
+				}
+			}
+
+			
+		}
+	}
+}
+
+.post-tags {
+	margin: 24px 0 16px;
+
+	a {
+		margin-right: 8px;
+		color: $color-secondary;
+		transition: .3s;
+		
+		&:hover {
+			color: $color-main;
+		}
+	}
+}
+
+.entry-info {
+	color: #888;
+	display: flex;
+	width: 100%;
+	padding-top: 24px;
+	padding-bottom: 16px;
+	margin-bottom: 30px;
+	border-bottom: 1px solid #888;
+	font-weight: 500;
+
+	.social-share {
+		display: flex;
+		align-items: center;
+		margin-left: 60px;
+
+		li {
+			list-style: none;
+			margin-right: 16px;
+		}
+	}
+}

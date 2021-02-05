@@ -4,6 +4,13 @@ document.addEventListener( 'DOMContentLoaded', function() {
 	const header = document.getElementById( 'masthead' );
 	const progressBar = document.getElementById( 'progress-bar' );
 
+	const headerHeight = header.offsetHeight + 'px';
+	const postContent = document.querySelector( '.post-content' );
+	if ( postContent.length !== 0 ) {
+		postContent.style.marginTop = headerHeight;
+		header.classList.add( 'sticky' );
+	}
+
 	/** Carousel */
 	let slideIndex = 1;
 	const slides = document.querySelectorAll( '.gem-item' );

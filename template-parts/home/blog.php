@@ -69,12 +69,12 @@
 					<h3><?= get_the_title() ?></h3>
 					<p><?= get_the_excerpt() ?></p>
 
-					<a class="fw-5 cldark d-flex align-center" href="<?php the_permalink(); ?>">
+					<a class="fw-5 cldark d-flex align-center readmore" href="<?php the_permalink(); ?>">
 						Learn more detail
 						<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right-blue.svg' ?>">
 					</a>
 
-					<a class="fw-5 cldark d-flex align-center" href="<?php the_permalink(); ?>">
+					<a class="fw-5 cldark d-flex align-center readmore" href="<?php the_permalink(); ?>">
 						Stay current with new tech insights
 						<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right-blue.svg' ?>">
 					</a>

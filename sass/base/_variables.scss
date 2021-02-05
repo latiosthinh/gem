@@ -33,6 +33,12 @@ $dark-sea: #162a73;
 	background: linear-gradient(to right, #0ce2ff 0%,#0094ff 100%);
 }
 
+@mixin set-line( $n, $s ) {
+	height: $n * $s * 1.5px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
 .txt-l {
 	font-weight: 300;
 }

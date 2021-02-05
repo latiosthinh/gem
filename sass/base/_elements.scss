@@ -21,23 +21,24 @@ body {
 	display: none;
 }
 
-h1 {
+h1, .h1 {
 	font-size: 60px;
 }
 
-h2 {
+h2, .h2 {
 	font-size: 40px;
 }
 
-h3 {
+h3, .h3 {
 	font-size: 30px;
 }
 
-h4 {
+h4, .h4 {
 	font-size: 20px;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4,
+.h1, .h2, .h3, .h4 {
 	font-weight: 500;
 }
 
@@ -103,4 +104,16 @@ form {
 
 input {
 	outline: none;
+}
+
+.readmore {
+	img {
+		margin-left: 15px;
+	}
+
+	&:hover {
+		img {
+			animation: ltr-2 1s linear infinite;
+		}
+	}
 }
