@@ -17,7 +17,7 @@ $events = get_terms( [
 <nav class="main-menu">
 	<div class="menu-parent">
 		<ul class="container">
-			<li class="active"><a class="menu-parent__item" data-href="menu-services">Services</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>"></li>
+			<li><a class="menu-parent__item" data-href="menu-services">Services</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>"></li>
 			<li><a class="menu-parent__item" data-href="menu-case-studies">Case Studies</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>"></li>
 			<li><a class="menu-parent__item" data-href="menu-event">News</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>"></li>
 			<li><a class="menu-parent__item" data-href="menu-resource-center">Resource Center</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>"></li>
@@ -27,7 +27,7 @@ $events = get_terms( [
 		</ul>
 	</div>
 
-	<div id="menu-services" class="menu-children active">
+	<div id="menu-services" class="menu-children">
 		<h3>Explore our services</h3>
 		<?php foreach ( $services as $s ) : ?>
 

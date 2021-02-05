@@ -64,13 +64,22 @@ document.addEventListener( 'DOMContentLoaded', function() {
 
 	const navControl = document.getElementById( 'nav-control' );
 	const mainMenu   = document.querySelector( '.main-menu' );
+	const menuItems    = document.querySelectorAll( '.menu-parent__item' );
+	const menuChildren = document.querySelectorAll( '.menu-children' );
+
 	navControl.addEventListener( 'click', () => {
 		navControl.classList.contains( 'active' ) ? navControl.classList.remove( 'active' ) : navControl.classList.add( 'active' )
 		mainMenu.classList.contains( 'active' ) ? mainMenu.classList.remove( 'active' ) : mainMenu.classList.add( 'active' )
+
+		menuItems.forEach( e => {
+			e.parentElement.classList.remove( 'active' );
+		} )
+
+		menuChildren.forEach( e => {
+			e.classList.remove( 'active' );
+		} )
 	} )
 
-	const menuItems    = document.querySelectorAll( '.menu-parent__item' );
-	const menuChildren = document.querySelectorAll( '.menu-children' );
 	menuItems.forEach( e => {
 		e.addEventListener( 'mouseenter', () => {
 			menuItems.forEach( e => {
