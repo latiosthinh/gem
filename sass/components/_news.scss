@@ -305,9 +305,9 @@
 		}
 
 		.wpcf7-checkbox {
-			display: grid;
-			grid-template-columns: repeat(2, 1fr);
-
+			display: flex;
+			flex-direction: column;
+			
 			input {
 				margin-top: 5px;
 				margin-right: 8px;

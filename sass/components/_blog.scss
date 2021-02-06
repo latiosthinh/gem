@@ -1,0 +1,45 @@
+.insights {
+	padding: 90px 0;
+
+	h2 {
+		margin-bottom: 24px;
+	}
+
+	.entry-content {
+		background: $color-grey;
+		padding: 0 20px 20px;
+	}
+
+	.col-12 {
+		display: flex;
+		justify-content: center;
+		margin-top: 40px;
+	}
+
+	article {
+		&:hover {
+			h3 {
+				color: $color-secondary;
+			}
+		}
+	}
+
+	h3 {
+		@include set-line( 3, 20 );
+		color: #000;
+		transition: .3s;
+	}
+}
+
+.service-content {
+	background: $color-grey;
+}
+
+.post-category {
+	a {
+		margin-top: 16px;
+		margin-bottom: 4px;
+		color: #888;
+		margin-right: 15px;
+	}
+}

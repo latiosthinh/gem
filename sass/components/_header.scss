@@ -294,6 +294,7 @@
 
 				& + p {
 					margin-top: 16px;
+					@include set-line( 3, 16 );
 				}
 			}
 		}

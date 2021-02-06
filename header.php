@@ -59,3 +59,5 @@
 
 		<span id="progress-bar"></span>
 	</header>
+
+	<?php get_search_form() ?>

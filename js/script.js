@@ -11,6 +11,19 @@ document.addEventListener( 'DOMContentLoaded', function() {
 		header.classList.add( 'sticky' );
 	}
 
+	const searchControl = document.getElementById( 'search-control' );
+	const searchClose   = document.getElementById( 'btn-search-close' );
+	const searchWraper  = document.querySelector( '.header-search__wrapper' );
+
+	searchControl.addEventListener( 'click', () => {
+		searchWraper.classList.add( 'search--open' );
+	} )
+
+	searchClose.addEventListener( 'click', () => {
+		searchWraper.classList.remove( 'search--open' );
+	} )
+
+
 	/** Carousel */
 	let slideIndex = 1;
 	const slides = document.querySelectorAll( '.gem-item' );
