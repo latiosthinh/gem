@@ -1,4 +1,4 @@
-<section class="about-banner clw" style="background-image:url(<?= rwmb_meta( 'banner' )['full_url'] ?>)">
+<section class="about-banner clw" style="background-image:url(<?= rwmb_meta( 'banner' ) ? rwmb_meta( 'banner' )['full_url'] : NOVUS_IMG . '/banner.svg' ?>)">
 	<div class="container">
 		<h1><?= get_the_title() ?></h1>
 		<p><?= rwmb_meta( 'title_des' ) ?></p>

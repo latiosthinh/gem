@@ -2041,6 +2041,11 @@ input {
 
 .service-content {
 	background: #F2F2F2;
+	padding: 60px 0;
+}
+
+.service-content h2 + p {
+	margin-bottom: 40px;
 }
 
 .post-category a {
@@ -2048,6 +2053,137 @@ input {
 	margin-bottom: 4px;
 	color: #888;
 	margin-right: 15px;
+}
+
+.single-service .about-contact {
+	background: #fff;
+}
+
+.single-service .gem-path {
+	padding-top: 90px;
+	padding-bottom: 90px;
+	position: relative;
+}
+
+.single-service .gem-path h2 + p {
+	margin: 16px auto 60px;
+}
+
+.single-service .gem-path img {
+	width: auto;
+	height: 70px;
+	margin: 0 auto 16px;
+}
+
+.single-service .gem-path:before {
+	content: '';
+	display: block;
+	position: absolute;
+	right: 18px;
+	bottom: 0;
+	left: 10px;
+	border: 3px solid #307EED;
+}
+
+.single-service .gem-path:after {
+	content: '';
+	display: block;
+	position: absolute;
+	bottom: -7px;
+	right: 10px;
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	border-left: 20px solid #307EED;
+}
+
+.tab-navs a {
+	transition: .3s;
+	display: block;
+	text-align: center;
+	background: #fff;
+	position: relative;
+	padding: 60px 30px;
+	cursor: pointer;
+	border: 1px solid #fff;
+}
+
+@media all and (max-width: 1400px) {
+	.tab-navs a {
+		padding: 40px 20px;
+	}
+}
+
+.tab-navs a:hover, .tab-navs a.active {
+	box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.1);
+	border: 1px solid #307EED;
+}
+
+.tab-navs a:hover:after, .tab-navs a.active:after {
+	background: #fff;
+	border-right: 1px solid #307EED;
+	border-bottom: 1px solid #307EED;
+}
+
+.tab-navs a:after {
+	content: '';
+	display: block;
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	bottom: -12px;
+	left: 50%;
+	transform: translateX(-50%) rotate(45deg);
+	border-right: 1px solid transparent;
+	border-bottom: 1px solid transparent;
+}
+
+.tab-navs img {
+	margin: 0 auto 24px;
+	width: 70px;
+}
+
+.tab-content {
+	background: #fff;
+	margin-top: 20px;
+	padding: 60px;
+	display: none;
+}
+
+.tab-content.active {
+	display: block;
+}
+
+.tab-content .col-6 {
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+.tab-content h4 {
+	height: 60px;
+	margin-bottom: 16px;
+}
+
+.tab-content ul {
+	margin: 14px 0;
+}
+
+.tab-content ul li {
+	margin: 4px 0;
+	list-style: url(images/arrow-right-cyan.svg);
+}
+
+.tab-content .img {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.tab-content img {
+	width: 200px;
+}
+
+.tab-content img + img {
+	width: 290px;
 }
 
 /*# sourceMappingURL=style.css.map */

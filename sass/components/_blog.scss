@@ -33,6 +33,11 @@
 
 .service-content {
 	background: $color-grey;
+	padding: 60px 0;
+
+	h2 + p {
+		margin-bottom: 40px;
+	}
 }
 
 .post-category {
@@ -41,5 +46,138 @@
 		margin-bottom: 4px;
 		color: #888;
 		margin-right: 15px;
+	}
+}
+
+.single-service {
+	.about-contact {
+		background: #fff;
+	}
+
+	.gem-path {
+		padding-top: 90px;
+		padding-bottom: 90px;
+		position: relative;
+
+		h2 + p {
+			margin: 16px auto 60px;
+		}
+
+		img {
+			width: auto;
+			height: 70px;
+			margin: 0 auto 16px;
+		}
+
+		&:before {
+			content: '';
+			display: block;
+			position: absolute;
+			right: 18px;
+			bottom: 0;
+			left: 10px;
+			border: 3px solid $color-secondary;
+		}
+
+		&:after {
+			content: '';
+			display: block;
+			position: absolute;
+			bottom: -7px;
+			right: 10px;
+			border-top: 10px solid transparent;
+			border-bottom: 10px solid transparent;
+			border-left: 20px solid $color-secondary;
+		}
+	}
+}
+
+.tab-navs {
+	a {
+		transition: .3s;
+		display: block;
+		text-align: center;
+		background: #fff;
+		position: relative;
+		padding: 60px 30px;
+		cursor: pointer;
+		border: 1px solid #fff;
+
+		@media all and (max-width:1400px) {
+			padding: 40px 20px;
+		}
+
+		&:hover, &.active {
+			box-shadow: 0 0 4px 4px rgba( 0,0,0,.1 );
+			border: 1px solid $color-secondary;
+
+			&:after {
+				background: #fff;
+				border-right: 1px solid $color-secondary;
+				border-bottom: 1px solid $color-secondary;
+			}
+		}
+
+		&:after {
+			content: '';
+			display: block;
+			width: 20px;
+			height: 20px;
+			position: absolute;
+			bottom: -12px;
+			left: 50%;
+			transform: translateX(-50%) rotate(45deg);
+			border-right: 1px solid transparent;
+			border-bottom: 1px solid transparent;
+		}
+	}
+
+	img {
+		margin: 0 auto 24px;
+		width: 70px;
+	}
+}
+
+.tab-content {
+	background: #fff;
+	margin-top: 20px;
+	padding: 60px;
+	display: none;
+
+	&.active {
+		display: block;
+	}
+
+	.col-6 {
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+
+	h4 {
+		height: 60px;
+		margin-bottom: 16px;
+	}
+
+	ul {
+		margin: 14px 0;
+
+		li {
+			margin: 4px 0;
+			list-style: url( images/arrow-right-cyan.svg );
+		}
+	}
+
+	.img {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	img {
+		width: 200px;
+
+		& + img {
+			width: 290px;
+		}
 	}
 }

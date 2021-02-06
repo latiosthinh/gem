@@ -116,6 +116,25 @@ document.addEventListener( 'DOMContentLoaded', function() {
 		} )
 	});
 
+	/** Tabs */
+	const tabLinks    = document.querySelectorAll( '.tab-link' );
+	const tabContents = document.querySelectorAll( '.tab-content' );
+
+	tabLinks.forEach( e => {
+		e.addEventListener( 'click', () => {
+			tabLinks.forEach( e => {
+				e.classList.remove( 'active' );
+			} )
+	
+			tabContents.forEach( e => {
+				e.classList.remove( 'active' );
+			} )
+
+			e.classList.add( 'active' )
+			document.getElementById( e.dataset.href ).classList.add( 'active' )
+		} )
+	});
+
 	/** Init */
 	gemSliderInit();
 
