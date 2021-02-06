@@ -1,4 +1,4 @@
-<section class="post-content news-content">
+<section class="single-content news-content">
 	<div class="container">
 		<div class="row">
 			<div class="col-12">

@@ -152,3 +152,22 @@ function change_default_jquery() {
 	wp_dequeue_script( 'jquery');
 	wp_deregister_script( 'jquery');   
 }
+
+add_action( 'pre_get_posts', 'gem_post_type_archive' );
+function gem_post_type_archive( $query ) {
+
+	if ( $query->is_main_query()
+		&& ! is_admin() 
+		&& is_tax( 'event-category', 'news' )
+	) {
+			$query->set( 'posts_per_page', '7' );
+	}
+
+	if ( $query->is_main_query()
+		&& ! is_admin() 
+		&& is_tax( 'event-category', 'event-calendar' )
+	) {
+			$query->set( 'posts_per_page', '6' );
+			$query->set( 'offset', '1' );
+	}
+}

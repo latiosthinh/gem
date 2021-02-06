@@ -56,6 +56,7 @@ img {
 	object-fit: cover;
 	max-width: 100%;
 	width: 100%;
+	transition: .5s;
 }
 
 .gem-slider {
@@ -76,6 +77,11 @@ img {
 	width: 20px;
 }
 
+.scroll-notice {
+	display: block;
+	text-align: center;
+}
+
 .gem-dots {
 	display: flex;
 	align-items: center;
@@ -94,6 +100,40 @@ img {
 			background: $color-secondary;
 		}
 	}
+}
+
+.gem-form {
+	label {
+		font-weight: 500;
+		font-size: 20px;
+		margin-bottom: 68px;
+		display: flex;
+		justify-content: space-between;
+		padding-bottom: 8px;
+		border-bottom: 1px solid #000;
+		font-size: 16px;
+	}
+
+	.wpcf7-form-control-wrap {
+		width: 70%;
+	}
+
+	input[type=text],
+	input[type=email],
+	input[type=tel] {
+		border: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	.your-message {
+		flex: 0 0 100%;
+		width: 100%;
+	}
+}
+
+textarea {
+	border: 0;
 }
 
 form {
