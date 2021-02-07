@@ -4,7 +4,7 @@
 			<div class="col-6">
 				<?php the_content(); ?>
 
-				<a class="btn-1 fw-5" href="<?= site_url( '/contact-us' ) ?>">
+				<a class="btn-1 fw-5" href="<?= get_permalink( get_page_by_path( 'contact-us' ) ) ?>">
 					<span>
 						Talk with our experts
 						<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right.svg' ?>">

@@ -1,0 +1,135 @@
+.case-study-banner {
+	padding: 15% 0;
+	position: relative;
+
+	&:before {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		@extend %button-dark;
+		opacity: .8;
+		z-index: 1;
+	}
+
+	.container {
+		position: inherit;
+		z-index: 2;
+	}
+
+	h1 {
+		margin-bottom: 16px;
+	}
+}
+
+.case-study-description {
+	padding: 90px 0;
+
+	p {
+		@media all and (min-width:1200px) {
+			width: 80%;
+			margin: 0 auto;
+		}
+	}
+}
+
+.case-study-posts {
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 90px;
+
+	article {
+		margin-bottom: 20px;
+
+		.entry-thumbnail {
+			overflow: hidden;
+			display: block;
+
+			&:hover {
+				img {
+					transform: scale(1.2);
+				}
+			}
+		}
+
+		img {
+			height: 280px;
+		}
+
+		h2 {
+			@include set-line( 3, 20 );
+			color: #000;
+		}
+
+		p {
+			margin-top: 4px;
+			color: #000;
+		}
+
+		.entry-title {
+			padding: 0 20px 20px;
+			background: $color-grey;
+		}
+
+		a:hover {
+			h2 {
+				color: $color-secondary;
+			}
+		}
+	}
+}
+
+.sidebar-case-study {
+	h4 {
+		@extend %button-dark;
+		margin-bottom: 12px;
+		padding: 8px 16px;
+	}
+
+	a {
+		margin: 12px 0;
+		padding-left: 16px;
+		display: flex;
+		width: 100%;
+		color: #000;
+		transition: .3s;
+
+		&:hover {
+			color: $color-secondary;
+		}
+	}
+}
+
+.single-case-study {
+	.case-study-banner {
+		padding-top: 25%;
+		padding-bottom: 60px;
+
+		.post-tags {
+			margin-left: 40px;
+			padding-top: 0;
+
+			a {
+				color: #fff;
+			}
+		}
+	}
+
+	.entry-info + p {
+		margin: 40px 0 64px;
+	}
+
+	.case-study-content {
+		aside {
+			background: $color-grey;
+			
+			@media all and (min-width:1500px) {
+				padding: 90px 60px;
+				margin-top: -95px;
+			}
+		}
+	}
+}

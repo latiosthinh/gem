@@ -15,7 +15,16 @@
 get_header();
 ?>
 
+<section class="blog-banner" style="background:url(<?= get_the_post_thumbnail_url( get_queried_object_id(), 'full' ) ?>) center center / cover no-repeat">
+	<div class="container">
+		<h2 class="clw">Explore our <br> trending insights</h2>
+		<p class="clw">Bring deeper understanding of business and technology trends</p>
+	</div>
+</section>
 
+<section class="blog-posts">
+	<div class="container"></div>
+</section>
 
 <?php
 get_footer();

@@ -18,12 +18,12 @@ $events = get_terms( [
 	<div class="menu-parent">
 		<ul class="container">
 			<li><a class="menu-parent__item" data-href="menu-services">Services</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>"></li>
-			<li><a class="menu-parent__item" data-href="menu-case-studies">Case Studies</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>"></li>
+			<li><a class="menu-parent__item" data-href="menu-case-studies" href="<?= get_post_type_archive_link( 'case-study' ); ?>">Case Studies</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>"></li>
 			<li><a class="menu-parent__item" data-href="menu-event">News</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>"></li>
 			<li><a class="menu-parent__item" data-href="menu-resource-center">Resource Center</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>"></li>
-			<li><a href="<?= home_url( '/career' ) ?>">Career</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>"></li>
-			<li><a href="<?= home_url( '/about-us' ) ?>">About Us</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>"></li>
-			<li><a href="<?= home_url( '/contact-us' ) ?>">Contact Us</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>"></li>
+			<li><a href="<?= get_permalink( get_page_by_path( 'career' ) ) ?>">Career</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>"></li>
+			<li><a href="<?= get_permalink( get_page_by_path( 'about-us' ) ) ?>">About Us</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>"></li>
+			<li><a href="<?= get_permalink( get_page_by_path( 'contact-us' ) ) ?>">Contact Us</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>"></li>
 		</ul>
 	</div>
 

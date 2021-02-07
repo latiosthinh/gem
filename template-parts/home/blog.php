@@ -98,7 +98,7 @@
 			to reach new heights
 		</h3>
 
-		<a class="btn-1 fw-5" href="<?= site_url( '/about-us' ) ?>">
+		<a class="btn-1 fw-5" href="<?= get_permalink( get_page_by_path( 'about-us' ) ) ?>">
 			<span>
 				Talk with our Experts
 				<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right.svg' ?>">

@@ -40,9 +40,12 @@
 	}
 }
 
-.post-category {
+.post-tags {
+	display: flex;
+	flex-wrap: wrap;
+	padding-top: 16px;
+
 	a {
-		margin-top: 16px;
 		margin-bottom: 4px;
 		color: #888;
 		margin-right: 15px;
@@ -180,4 +183,8 @@
 			width: 290px;
 		}
 	}
+}
+
+.blog-banner {
+	padding: 14% 0;
 }

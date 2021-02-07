@@ -27,7 +27,7 @@ get_template_part( 'template-parts/service/banner' );
 					</a>
 
 					<div class="entry-content">
-						<div class="post-category d-flex">
+						<div class="post-tags d-flex">
 						<?php
 							$tags = get_the_terms( get_the_ID(), 'post_tag' );
 
@@ -260,7 +260,4 @@ get_template_part( 'template-parts/service/banner' );
 </section>
 
 <?php
-get_footer();
-
-
 get_footer();

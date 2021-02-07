@@ -236,6 +236,24 @@ input {
 	&:hover {
 		background: #888;
 	}
+
+	@media all and (max-width:1400px) {
+		top: 5px;
+	}
+
+	@media all and (max-width:1200px) {
+		top: -5px;
+	}
+
+	@media all and (max-width:991px) {
+		padding: 3px;
+		top: 0;
+
+		img {
+			width: 15px;
+			height: 15px;
+		}
+	}
 }
 
 #btn-search-close {

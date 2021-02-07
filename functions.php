@@ -142,32 +142,37 @@ add_action( 'wp_default_scripts', 'dequeue_jquery_migrate' );
 
 add_filter( 'wp_enqueue_scripts', 'change_default_jquery', PHP_INT_MAX );
 function change_default_jquery() {
-	if ( ! is_home() ) {
-		return;
+	if ( is_home() || is_front_page() ) {
+		wp_dequeue_style( 'wp-block-library' );
+		wp_dequeue_style( 'wp-block-library-theme' );
+		wp_dequeue_style( 'wc-block-style' );
+		wp_dequeue_script( 'jquery');
+		wp_deregister_script( 'jquery');
 	}
-	
-	wp_dequeue_style( 'wp-block-library' );
-    wp_dequeue_style( 'wp-block-library-theme' );
-    wp_dequeue_style( 'wc-block-style' );
-	wp_dequeue_script( 'jquery');
-	wp_deregister_script( 'jquery');   
 }
 
 add_action( 'pre_get_posts', 'gem_post_type_archive' );
 function gem_post_type_archive( $query ) {
 
-	if ( $query->is_main_query()
-		&& ! is_admin() 
-		&& is_tax( 'event-category', 'news' )
-	) {
-			$query->set( 'posts_per_page', '7' );
+	if ( is_admin() || ! $query->is_main_query() ) {
+		return;
 	}
 
-	if ( $query->is_main_query()
-		&& ! is_admin() 
-		&& is_tax( 'event-category', 'event-calendar' )
-	) {
-			$query->set( 'posts_per_page', '6' );
-			$query->set( 'offset', '1' );
+	if ( is_tax( 'event-category', 'news' ) ) {
+		$query->set( 'posts_per_page', '7' );
+	}
+
+	if ( is_tax( 'event-category', 'event-calendar' ) ) {
+		$query->set( 'posts_per_page', '6' );
+		$query->set( 'offset', '1' );
+	}
+
+	if ( is_tax( 'event-category', 'event-calendar' ) ) {
+		$query->set( 'posts_per_page', '6' );
+		$query->set( 'offset', '1' );
+	}
+
+	if ( is_post_type_archive( 'case-study' ) || is_taxonomy( 'case-study-category' ) ) {
+		$query->set( 'posts_per_page', '6' );
 	}
 }

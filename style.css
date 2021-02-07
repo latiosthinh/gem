@@ -163,7 +163,7 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-com
 	background: linear-gradient(to right, #307EED 0%, #244cb4 100%);
 }
 
-.btn-1 span {
+.btn-1 span, .case-study-banner:before, .sidebar-case-study h4 {
 	background: -moz-linear-gradient(right, #244cb4 0%, #162a73 100%);
 	background: -webkit-linear-gradient(right, #244cb4 0%, #162a73 100%);
 	background: linear-gradient(to right, #244cb4 0%, #162a73 100%);
@@ -582,6 +582,29 @@ input {
 
 .search-submit:hover {
 	background: #888;
+}
+
+@media all and (max-width: 1400px) {
+	.search-submit {
+		top: 5px;
+	}
+}
+
+@media all and (max-width: 1200px) {
+	.search-submit {
+		top: -5px;
+	}
+}
+
+@media all and (max-width: 991px) {
+	.search-submit {
+		padding: 3px;
+		top: 0;
+	}
+	.search-submit img {
+		width: 15px;
+		height: 15px;
+	}
 }
 
 #btn-search-close {
@@ -1714,6 +1737,10 @@ input {
 	}
 }
 
+.single-content aside h4:first-child {
+	margin-bottom: 30px;
+}
+
 .single-content aside span {
 	color: #888;
 	margin-bottom: 4px;
@@ -1722,7 +1749,6 @@ input {
 
 .single-content aside a {
 	color: #000;
-	margin-bottom: 30px;
 	display: block;
 }
 
@@ -1764,17 +1790,17 @@ input {
 	overflow: hidden;
 }
 
-.post-tags {
+.single-content .post-tags {
 	margin: 24px 0 16px;
 }
 
-.post-tags a {
+.single-content .post-tags a {
 	margin-right: 8px;
 	color: #307EED;
 	transition: .3s;
 }
 
-.post-tags a:hover {
+.single-content .post-tags a:hover {
 	color: #0F1550;
 }
 
@@ -1789,10 +1815,13 @@ input {
 	font-weight: 500;
 }
 
+.entry-info span {
+	margin-right: 60px;
+}
+
 .entry-info .social-share {
 	display: flex;
 	align-items: center;
-	margin-left: 60px;
 }
 
 .entry-info .social-share li {
@@ -2048,8 +2077,13 @@ input {
 	margin-bottom: 40px;
 }
 
-.post-category a {
-	margin-top: 16px;
+.post-tags {
+	display: flex;
+	flex-wrap: wrap;
+	padding-top: 16px;
+}
+
+.post-tags a {
 	margin-bottom: 4px;
 	color: #888;
 	margin-right: 15px;
@@ -2184,6 +2218,138 @@ input {
 
 .tab-content img + img {
 	width: 290px;
+}
+
+.blog-banner {
+	padding: 14% 0;
+}
+
+.case-study-banner {
+	padding: 15% 0;
+	position: relative;
+}
+
+.case-study-banner:before {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	opacity: .8;
+	z-index: 1;
+}
+
+.case-study-banner .container {
+	position: inherit;
+	z-index: 2;
+}
+
+.case-study-banner h1 {
+	margin-bottom: 16px;
+}
+
+.case-study-description {
+	padding: 90px 0;
+}
+
+@media all and (min-width: 1200px) {
+	.case-study-description p {
+		width: 80%;
+		margin: 0 auto;
+	}
+}
+
+.case-study-posts {
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 90px;
+}
+
+.case-study-posts article {
+	margin-bottom: 20px;
+}
+
+.case-study-posts article .entry-thumbnail {
+	overflow: hidden;
+	display: block;
+}
+
+.case-study-posts article .entry-thumbnail:hover img {
+	transform: scale(1.2);
+}
+
+.case-study-posts article img {
+	height: 280px;
+}
+
+.case-study-posts article h2 {
+	height: 90px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	color: #000;
+}
+
+.case-study-posts article p {
+	margin-top: 4px;
+	color: #000;
+}
+
+.case-study-posts article .entry-title {
+	padding: 0 20px 20px;
+	background: #F2F2F2;
+}
+
+.case-study-posts article a:hover h2 {
+	color: #307EED;
+}
+
+.sidebar-case-study h4 {
+	margin-bottom: 12px;
+	padding: 8px 16px;
+}
+
+.sidebar-case-study a {
+	margin: 12px 0;
+	padding-left: 16px;
+	display: flex;
+	width: 100%;
+	color: #000;
+	transition: .3s;
+}
+
+.sidebar-case-study a:hover {
+	color: #307EED;
+}
+
+.single-case-study .case-study-banner {
+	padding-top: 25%;
+	padding-bottom: 60px;
+}
+
+.single-case-study .case-study-banner .post-tags {
+	margin-left: 40px;
+	padding-top: 0;
+}
+
+.single-case-study .case-study-banner .post-tags a {
+	color: #fff;
+}
+
+.single-case-study .entry-info + p {
+	margin: 40px 0 64px;
+}
+
+.single-case-study .case-study-content aside {
+	background: #F2F2F2;
+}
+
+@media all and (min-width: 1500px) {
+	.single-case-study .case-study-content aside {
+		padding: 90px 60px;
+		margin-top: -95px;
+	}
 }
 
 /*# sourceMappingURL=style.css.map */
