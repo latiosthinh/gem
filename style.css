@@ -163,7 +163,7 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-com
 	background: linear-gradient(to right, #307EED 0%, #244cb4 100%);
 }
 
-.btn-1 span, .case-study-banner:before, .sidebar-case-study h4 {
+.btn-1 span, .case-study-banner:before, .sidebar-case-study h4, .career-posts article {
 	background: -moz-linear-gradient(right, #244cb4 0%, #162a73 100%);
 	background: -webkit-linear-gradient(right, #244cb4 0%, #162a73 100%);
 	background: linear-gradient(to right, #244cb4 0%, #162a73 100%);
@@ -2367,6 +2367,137 @@ input {
 
 .single-case-study .case-study-related article .entry-title {
 	background: #fff;
+}
+
+.career-banner {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.career-banner .container {
+	text-align: center;
+}
+
+.career-banner p {
+	margin: 16px 0 40px;
+}
+
+.career-posts {
+	padding: 90px 0;
+}
+
+.career-posts h2 {
+	text-align: center;
+}
+
+.career-posts h2 + p {
+	text-align: center;
+	margin: 16px auto 40px;
+}
+
+@media all and (min-width: 1200px) {
+	.career-posts h2 + p {
+		width: 70%;
+	}
+}
+
+.career-posts article {
+	padding: 30px;
+	margin-bottom: 20px;
+}
+
+.career-posts article a {
+	color: #fff;
+}
+
+.career-posts article h3 {
+	height: 90px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+.career-posts article .entry-icon {
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 30px;
+}
+
+.career-posts article img {
+	max-width: 62px;
+	max-height: 60px;
+	object-fit: contain;
+}
+
+.career-people {
+	padding: 60px 0;
+	background: #F2F2F2;
+}
+
+.career-people .row:nth-of-type(2n) {
+	flex-direction: row-reverse;
+}
+
+.career-people .content {
+	display: flex;
+	flex-direction: column;
+	padding: 20px 10px;
+	justify-content: center;
+}
+
+@media all and (min-width: 1200px) {
+	.career-people .content {
+		padding: 0 75px;
+	}
+}
+
+.career-people h4 {
+	color: #888;
+	margin: 24px 0 40px;
+}
+
+.career-people a {
+	margin-top: 24px;
+}
+
+.career-people a img {
+	margin-left: 12px;
+}
+
+.career-people a:hover img {
+	animation: ltr-2 1s infinite;
+}
+
+.single-career-banner {
+	padding-top: 25%;
+	padding-bottom: 50px;
+}
+
+.single-career-banner span {
+	margin-left: 12px;
+	margin-right: 40px;
+	font-weight: 300;
+}
+
+.single-career-content {
+	padding: 60px 0;
+}
+
+@media all and (min-width: 1200px) {
+	.single-career-content .col-4 {
+		padding-left: 200px;
+	}
+}
+
+.single-career-content .col-8 {
+	margin-bottom: 28px;
+}
+
+.single-career-content .col-12 {
+	display: flex;
+	justify-content: center;
+	margin-top: 45px;
 }
 
 /*# sourceMappingURL=style.css.map */
