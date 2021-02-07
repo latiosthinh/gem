@@ -60,7 +60,57 @@ while ( have_posts() ) :
 	</div>
 </section>
 
-<?php
-endwhile;
+<?php endwhile; ?>
 
+<section class="case-study-related case-studies">
+	<div class="container">
+		<h4>More case studies</h4>
+		<div class="row">
+			<?php
+			$related = new WP_Query( [
+				'post_type'      => 'case-study',
+				'posts_per_page' => 4,
+				'tax_query'      => [
+					[
+						'taxonomy' => 'case-study-category',
+						'field'    => 'slug',
+						'term'     => [ get_the_terms( get_the_ID(), 'case-study-category' ) ]
+					]
+				]
+			] );
+
+			while ( have_posts() ) : the_post();
+			?>
+
+			<div class="col-3">
+				<article>
+					<a class="entry-thumbnail" href="<?php the_permalink(); ?>">
+						<?= the_post_thumbnail( 'full' ) ?>
+					</a>
+
+					<div class="entry-title">
+						<div class="post-tags">
+						<?php
+						$tags = get_the_terms( get_the_ID(), 'post_tag' );
+
+						foreach ( $tags as $t ) :
+						?>
+							<a href="<?= get_term_link( $t->term_id ) ?>"><?= $t->name ?></a>
+						<?php endforeach; ?>
+						</div>
+
+						<a href="<?php the_permalink(); ?>">
+							<h2 class="h4 fw-5"><?= get_the_title() ?></h2>
+							<?php the_excerpt(); ?>
+						</a>
+					</div>
+				</article>
+			</div>
+
+			<?php endwhile; ?>
+		</div>
+	</div>
+</section>
+
+<?php
 get_footer();

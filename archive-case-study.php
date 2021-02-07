@@ -20,7 +20,7 @@
 		<div class="row">
 			<?php get_template_part( 'template-parts/sidebar-case-study' ) ?>
 
-			<div class="col-9">
+			<div class="col-9 case-studies">
 				<div class="row">
 					<?php while ( have_posts() ) : the_post(); ?>
 					<div class="col-4">

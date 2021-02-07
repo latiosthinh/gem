@@ -2267,41 +2267,41 @@ input {
 	padding-bottom: 90px;
 }
 
-.case-study-posts article {
+.case-studies article {
 	margin-bottom: 20px;
 }
 
-.case-study-posts article .entry-thumbnail {
+.case-studies article .entry-thumbnail {
 	overflow: hidden;
 	display: block;
 }
 
-.case-study-posts article .entry-thumbnail:hover img {
+.case-studies article .entry-thumbnail:hover img {
 	transform: scale(1.2);
 }
 
-.case-study-posts article img {
+.case-studies article img {
 	height: 280px;
 }
 
-.case-study-posts article h2 {
+.case-studies article h2 {
 	height: 90px;
 	text-overflow: ellipsis;
 	overflow: hidden;
 	color: #000;
 }
 
-.case-study-posts article p {
+.case-studies article p {
 	margin-top: 4px;
 	color: #000;
 }
 
-.case-study-posts article .entry-title {
+.case-studies article .entry-title {
 	padding: 0 20px 20px;
 	background: #F2F2F2;
 }
 
-.case-study-posts article a:hover h2 {
+.case-studies article a:hover h2 {
 	color: #307EED;
 }
 
@@ -2342,14 +2342,31 @@ input {
 }
 
 .single-case-study .case-study-content aside {
+	padding: 0;
+}
+
+.single-case-study .case-study-content aside div {
 	background: #F2F2F2;
 }
 
 @media all and (min-width: 1500px) {
-	.single-case-study .case-study-content aside {
-		padding: 90px 60px;
+	.single-case-study .case-study-content aside div {
+		padding: 90px 40px;
 		margin-top: -95px;
 	}
+}
+
+.single-case-study .case-study-related {
+	background: #F2F2F2;
+	padding: 60px 0;
+}
+
+.single-case-study .case-study-related h4 {
+	margin-bottom: 24px;
+}
+
+.single-case-study .case-study-related article .entry-title {
+	background: #fff;
 }
 
 /*# sourceMappingURL=style.css.map */
