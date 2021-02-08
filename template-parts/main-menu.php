@@ -4,9 +4,8 @@ $services = get_terms( [
 	'hide_empty' => 0
 ] );
 
-$cases = get_terms( [
-	'taxonomy' => 'case-study-category',
-	'hide_empty' => 0
+$cases = new WP_Query( [
+	'post_type'  => 'industry'
 ] );
 
 $events = get_terms( [
@@ -18,7 +17,7 @@ $events = get_terms( [
 	<div class="menu-parent">
 		<ul class="container">
 			<li><a class="menu-parent__item" data-href="menu-services">Services</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>"></li>
-			<li><a class="menu-parent__item" data-href="menu-case-studies" href="<?= get_post_type_archive_link( 'case-study' ); ?>">Case Studies</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>"></li>
+			<li><a class="menu-parent__item" data-href="menu-case-studies">Industries</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>"></li>
 			<li><a class="menu-parent__item" data-href="menu-event">News</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>"></li>
 			<li><a class="menu-parent__item" data-href="menu-resource-center">Resource Center</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>"></li>
 			<li><a href="<?= get_permalink( get_page_by_path( 'careers' ) ) ?>">Career</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>"></li>
@@ -66,12 +65,12 @@ $events = get_terms( [
 		<h3>Insights & How we help clients</h3>
 
 		<ul class="d-flex">
-			<?php foreach ( $cases as $s ) : ?>
+			<?php while ( $cases->have_posts() ) : $cases->the_post(); ?>
 				<li>
-					<a class="fw-5" href="<?= get_term_link( $s->term_id ) ?>"><?= $s->name; ?></a>
+					<a class="fw-5" href="<?= the_permalink() ?>"><?= get_the_title(); ?></a>
 					<img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" />
 				</li>
-			<?php endforeach; ?>
+			<?php endwhile; ?>
 		</ul>
 		
 		<p>FEATURED</p>
@@ -128,12 +127,12 @@ $events = get_terms( [
 
 		<ul class="d-flex">
 			<li>
-				<a class="fw-5" href="<?= home_url( '/blog' ) ?>">Blog</a>
+				<a class="fw-5" href="<?= get_permalink( get_option( 'page_for_posts' ) ) ?>">Blog</a>
 				<img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" />
 			</li>
 
 			<li>
-				<a class="fw-5" href="<?= home_url( '/blog' ) ?>">Industries</a>
+				<a class="fw-5" href="<?= get_post_type_archive_link( 'case-study' ) ?>">Case Studies</a>
 				<img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" />
 			</li>
 		</ul>

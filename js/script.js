@@ -5,9 +5,10 @@ document.addEventListener( 'DOMContentLoaded', function() {
 	const progressBar = document.getElementById( 'progress-bar' );
 
 	const headerHeight = header.offsetHeight + 'px';
-	const postContent = document.querySelector( '.single-content' );
-	if ( postContent ) {
-		postContent.style.marginTop = headerHeight;
+	const postContent  = document.querySelector( '.single-content' );
+	const blogPost     = document.querySelector( '.blog-posts' );
+	if ( postContent || blogPost ) {
+		postContent ? postContent.style.marginTop = headerHeight : null;
 		header.classList.add( 'sticky' );
 	}
 

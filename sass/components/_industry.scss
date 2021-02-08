@@ -1,0 +1,39 @@
+.industry-banner {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+
+	a {
+		margin-top: 40px;
+	}
+}
+
+.industry-insight {
+	margin-top: 90px;
+	margin-bottom: 70px;
+
+	h2 {
+		margin-bottom: 24px;
+	}
+
+	article {
+		margin-bottom: 20px;
+	}
+}
+
+.industry-case-study {
+	padding-bottom: 90px;
+	
+	h2 {
+		margin-bottom: 24px;
+	}
+
+	.col-12 {
+		display: flex;
+		justify-content: center;
+
+		a {
+			margin-top: 40px;
+		}
+	}
+}

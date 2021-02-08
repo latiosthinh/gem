@@ -35,8 +35,8 @@ $dark-sea: #162a73;
 
 @mixin set-line( $n, $s ) {
 	height: $n * $s * 1.5px;
-	text-overflow: ellipsis;
 	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .txt-l {

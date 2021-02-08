@@ -18,25 +18,13 @@
 <section class="case-study-posts">
 	<div class="container">
 		<div class="row">
-			<aside class="col-3">
-				<h4 class="clw fw-5">INDUSTRIES</h4>
-				<?php
-				$cats = get_terms( [
-					'taxonomy'   => 'case-study-category',
-					'hide_empty' => false,
-				] );
-
-				foreach ( $cats as $c ) :
-				?>
-				<a class="fw-5" href="<?= get_term_link( $c->slug, 'case-study-category' ) ?>"><?= $c->name ?></a>
-				<?php endforeach; ?>
-			</aside>
+			<?php get_template_part( 'template-parts/sidebar-case-study' ) ?>
 
 			<div class="col-9">
 				<div class="row">
 					<?php while ( have_posts() ) : the_post(); ?>
 					<div class="col-4">
-						<article>
+						<article class="style-1">
 							<a class="entry-thumbnail" href="<?php the_permalink(); ?>">
 								<?= the_post_thumbnail( 'full' ) ?>
 							</a>

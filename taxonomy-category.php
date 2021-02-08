@@ -1,24 +1,11 @@
-<?php
-/**
- * The template for displaying search results pages
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
- *
- * @package novus
- */
-
-get_header();
-?>
-
-<?php if ( have_posts() ) : ?>
+<?php get_header(); ?>
 
 <section class="blog-posts">
 	<div class="container">
-		<h1 class="h2">Search results:</h1>
 		<div class="row">
 			<?php while ( have_posts() ): the_post() ?>
 			<div class="col-3">
-				<article class="style-1">
+				<article>
 					<a class="entry-thumbnail" href="<?php the_permalink(); ?>">
 						<?= the_post_thumbnail( 'full' ) ?>
 					</a>
@@ -41,19 +28,10 @@ get_header();
 					</div>
 				</article>
 			</div>
-			<?php
-				get_template_part( 'template-parts/content', get_post_type() );
-			endwhile;
-			?>
+			<?php endwhile; ?>
 		</div>
-		<?php get_template_part( 'template-parts/pagination' ); ?>
 	</div>
 </section>
-<?php
-else :
-get_template_part( 'template-parts/content', 'none' );
-endif;
-?>
 
 <?php
 get_footer();

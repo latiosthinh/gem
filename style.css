@@ -163,7 +163,7 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-com
 	background: linear-gradient(to right, #307EED 0%, #244cb4 100%);
 }
 
-.btn-1 span, .case-study-banner:before, .sidebar-case-study h4, .career-posts article {
+.btn-1 span, .case-study-banner:before, .sidebar-case-study h4, .career-posts article, .blog aside h4 {
 	background: -moz-linear-gradient(right, #244cb4 0%, #162a73 100%);
 	background: -webkit-linear-gradient(right, #244cb4 0%, #162a73 100%);
 	background: linear-gradient(to right, #244cb4 0%, #162a73 100%);
@@ -416,7 +416,11 @@ h1, h2, h3, h4,
 	font-weight: 500;
 }
 
-a,
+a {
+	transition: .3s;
+	text-decoration: none;
+}
+
 a:hover {
 	text-decoration: none;
 }
@@ -640,6 +644,11 @@ input {
 	margin: 0 auto;
 	fill: currentColor;
 	outline: none;
+}
+
+.wp-block-image figcaption {
+	text-align: center;
+	color: #888;
 }
 
 .site-header {
@@ -920,8 +929,8 @@ input {
 .menu-second ul:last-of-type a + p {
 	margin-top: 16px;
 	height: 72px;
-	text-overflow: ellipsis;
 	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .menu-second ul + p {
@@ -1693,15 +1702,15 @@ input {
 
 .news-items .news--small h3 {
 	height: 60px;
-	text-overflow: ellipsis;
 	overflow: hidden;
+	text-overflow: ellipsis;
 	margin: 4px 0;
 }
 
 .news-items .news--small p {
 	height: 48px;
-	text-overflow: ellipsis;
 	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .posts-pagination {
@@ -1786,8 +1795,8 @@ input {
 
 .single-content aside a:not(:first-of-type) h4 {
 	height: 90px;
-	text-overflow: ellipsis;
 	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .single-content .post-tags {
@@ -1864,8 +1873,8 @@ input {
 
 .event-item h3 {
 	height: 135px;
-	text-overflow: ellipsis;
 	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .event-item:hover img {
@@ -2062,8 +2071,8 @@ input {
 
 .insights h3 {
 	height: 90px;
-	text-overflow: ellipsis;
 	overflow: hidden;
+	text-overflow: ellipsis;
 	color: #000;
 	transition: .3s;
 }
@@ -2286,8 +2295,8 @@ input {
 
 .case-studies article h2 {
 	height: 90px;
-	text-overflow: ellipsis;
 	overflow: hidden;
+	text-overflow: ellipsis;
 	color: #000;
 }
 
@@ -2356,16 +2365,16 @@ input {
 	}
 }
 
-.single-case-study .case-study-related {
+.case-study-related {
 	background: #F2F2F2;
 	padding: 60px 0;
 }
 
-.single-case-study .case-study-related h4 {
+.case-study-related h4 {
 	margin-bottom: 24px;
 }
 
-.single-case-study .case-study-related article .entry-title {
+.case-study-related article .entry-title {
 	background: #fff;
 }
 
@@ -2414,8 +2423,8 @@ input {
 
 .career-posts article h3 {
 	height: 90px;
-	text-overflow: ellipsis;
 	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .career-posts article .entry-icon {
@@ -2498,6 +2507,250 @@ input {
 	display: flex;
 	justify-content: center;
 	margin-top: 45px;
+}
+
+@media all and (min-width: 1200px) {
+	.blog aside {
+		padding-left: 15%;
+	}
+}
+
+.blog aside h4 {
+	color: #fff;
+	padding: 8px 20px;
+	margin-bottom: 24px;
+}
+
+.blog .feature > h2 {
+	margin-top: 90px;
+}
+
+.blog .feature > p {
+	margin: 8px auto 60px;
+}
+
+.blog .blog-url {
+	margin-top: 40px;
+	margin-bottom: 90px;
+	display: flex;
+	justify-content: center;
+	text-decoration: underline;
+	color: #000;
+}
+
+.blog .blog-url:hover {
+	color: #307EED;
+}
+
+.blog .blog-posts {
+	padding: 90px 0;
+}
+
+.search .blog-posts {
+	padding: 90px 0;
+}
+
+.search h1 {
+	margin-top: 100px;
+	margin-bottom: 60px;
+}
+
+.single-post .single-blog-content p {
+	margin: 12px 0;
+}
+
+.single-post aside {
+	padding-top: 30%;
+}
+
+.archive.category h1 {
+	margin-top: 100px;
+	margin-bottom: 90px;
+}
+
+.archive.category .blog-posts {
+	padding-bottom: 90px;
+}
+
+article.style-3 {
+	display: flex;
+}
+
+article.style-3 .entry-thumbnail {
+	flex: 0 0 57%;
+}
+
+article.style-3 .entry-title {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background: #F2F2F2;
+	padding: 0 40px;
+}
+
+article.style-3 h2, article.style-3 h3 {
+	color: #000;
+	height: 90px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+article.style-3 h2:hover, article.style-3 h3:hover {
+	color: #307EED;
+}
+
+article.style-3 p {
+	height: 48px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+article.style-3 span {
+	margin: 16px 0 24px;
+}
+
+article.style-3 .cldark {
+	margin-top: 40px;
+}
+
+article.style-3 .cldark:hover img {
+	animation: ltr-2 1s infinite;
+}
+
+article.style-3 .cldark img {
+	margin-left: 12px;
+}
+
+article.style-1 {
+	margin-bottom: 20px;
+}
+
+article.style-1.style-2 {
+	display: flex;
+}
+
+article.style-1.style-2 .entry-thumbnail {
+	flex: 0 0 50%;
+	height: 210px;
+}
+
+article.style-1.style-2 p {
+	height: 48px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+article.style-1 .entry-thumbnail {
+	overflow: hidden;
+	display: block;
+}
+
+article.style-1 .entry-thumbnail:hover img {
+	transform: scale(1.2);
+}
+
+article.style-1 img {
+	height: 280px;
+}
+
+article.style-1 h2, article.style-1 h3 {
+	height: 90px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	color: #000;
+}
+
+article.style-1 p {
+	margin-top: 4px;
+	color: #000;
+}
+
+article.style-1 .entry-title {
+	padding: 0 20px 20px;
+	background: #F2F2F2;
+}
+
+article.style-1 a:hover h2, article.style-1 a:hover h3 {
+	color: #307EED;
+}
+
+aside .search-form {
+	width: 100%;
+}
+
+@media all and (max-width: 991px) {
+	aside .search-form {
+		display: none;
+	}
+}
+
+aside .search-form * {
+	width: 100%;
+	border-left: 0;
+	border-right: 0;
+	border-top: 0;
+	margin-bottom: 40px;
+}
+
+aside .search-form input {
+	padding-bottom: 4px;
+}
+
+aside h4 {
+	margin-bottom: 12px;
+}
+
+aside ul {
+	margin-bottom: 28px;
+	padding-left: 15px;
+}
+
+aside li {
+	margin: 12px 0;
+}
+
+aside li a:hover {
+	color: #307EED;
+}
+
+.industry-banner {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+}
+
+.industry-banner a {
+	margin-top: 40px;
+}
+
+.industry-insight {
+	margin-top: 90px;
+	margin-bottom: 70px;
+}
+
+.industry-insight h2 {
+	margin-bottom: 24px;
+}
+
+.industry-insight article {
+	margin-bottom: 20px;
+}
+
+.industry-case-study {
+	padding-bottom: 90px;
+}
+
+.industry-case-study h2 {
+	margin-bottom: 24px;
+}
+
+.industry-case-study .col-12 {
+	display: flex;
+	justify-content: center;
+}
+
+.industry-case-study .col-12 a {
+	margin-top: 40px;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -83,7 +83,7 @@ while ( have_posts() ) :
 			?>
 
 			<div class="col-3">
-				<article>
+				<article class="style-1">
 					<a class="entry-thumbnail" href="<?php the_permalink(); ?>">
 						<?= the_post_thumbnail( 'full' ) ?>
 					</a>

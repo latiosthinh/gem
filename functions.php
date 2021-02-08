@@ -175,4 +175,8 @@ function gem_post_type_archive( $query ) {
 	if ( is_post_type_archive( 'case-study' ) || is_taxonomy( 'case-study-category' ) ) {
 		$query->set( 'posts_per_page', '6' );
 	}
+
+	if ( is_post_type_archive( 'post' ) ) {
+		$query->set( 'posts_per_page', '8' );
+	}
 }

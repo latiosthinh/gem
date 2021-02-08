@@ -62,9 +62,13 @@ h1, h2, h3, h4,
 	font-weight: 500;
 }
 
-a,
-a:hover {
+a {
+	transition: .3s;
 	text-decoration: none;
+	
+	&:hover {
+		text-decoration: none;
+	}
 }
 
 button {
@@ -289,4 +293,9 @@ input {
     margin: 0 auto;
     fill: currentColor;
 	outline: none;
+}
+
+.wp-block-image figcaption {
+	text-align: center;
+	color: #888;
 }

@@ -17,7 +17,7 @@
 
 		<li>
 			<a href="https://www.linkedin.com/sharing/share-offsite/?url={<?= the_permalink(); ?>}">
-				<img style="width:18px;height:13px" src="<?= NOVUS_IMG . '/sc-3.svg' ?>" alt="linkedin">
+				<img style="width:21px;height:24px" src="<?= NOVUS_IMG . '/sc-3.svg' ?>" alt="linkedin">
 			</a>
 		</li>
 

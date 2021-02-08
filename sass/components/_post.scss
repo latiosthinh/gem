@@ -1,0 +1,215 @@
+.blog {
+	aside {
+		@media all and (min-width:1200px) {
+			padding-left: 15%;
+		}
+
+		h4 {
+			@extend %button-dark;
+			color: #fff;
+			padding: 8px 20px;
+			margin-bottom: 24px;
+		}
+	}
+
+	.feature {
+		> h2 {
+			margin-top: 90px;
+		}
+
+		> p {
+			margin: 8px auto 60px;
+		}
+	}
+
+	.blog-url {
+		margin-top: 40px;
+		margin-bottom: 90px;
+		display: flex;
+		justify-content: center;
+		text-decoration: underline;
+		color: #000;
+
+		&:hover {
+			color: $color-secondary;
+		}
+	}
+
+	.blog-posts {
+		padding: 90px 0;
+	}
+}
+
+.search {
+	.blog-posts {
+		padding: 90px 0;
+	}
+
+	h1 {
+		margin-top: 100px;
+		margin-bottom: 60px;
+	}
+}
+
+.single-post {
+	.single-blog-content {
+		p {
+			margin: 12px 0;
+		}
+	}
+
+	aside {
+		padding-top: 30%;
+	}
+}
+
+.archive.category {
+	h1 {
+		margin-top: 100px;
+		margin-bottom: 90px;
+	}
+
+	.blog-posts {
+		padding-bottom: 90px;
+	}
+}
+
+article.style-3 {
+	display: flex;
+
+	.entry-thumbnail {
+		flex: 0 0 57%;
+	}
+
+	.entry-title {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		background: $color-grey;
+		padding: 0 40px;
+	}
+
+	h2, h3 {
+		color: #000;
+		@include set-line( 2, 30 );
+
+		&:hover {
+			color: $color-secondary;
+		}
+	}
+
+	p {
+		@include set-line( 2, 16 );
+	}
+
+	span {
+		margin: 16px 0 24px;
+	}
+
+	.cldark {
+		margin-top: 40px;
+
+		&:hover {
+			img {
+				animation: ltr-2 1s infinite;
+			}
+		}
+
+		img {
+			margin-left: 12px;
+		}
+	}
+}
+
+article.style-1 {
+	margin-bottom: 20px;
+
+	&.style-2 {
+		display: flex;
+
+		.entry-thumbnail {
+			flex: 0 0 50%;
+			height: 210px;
+		}
+
+		p {
+			@include set-line( 2, 16 );
+		}
+	}
+
+	.entry-thumbnail {
+		overflow: hidden;
+		display: block;
+
+		&:hover {
+			img {
+				transform: scale(1.2);
+			}
+		}
+	}
+
+	img {
+		height: 280px;
+	}
+
+	h2, h3 {
+		@include set-line( 3, 20 );
+		color: #000;
+	}
+
+	p {
+		margin-top: 4px;
+		color: #000;
+	}
+
+	.entry-title {
+		padding: 0 20px 20px;
+		background: $color-grey;
+	}
+
+	a:hover {
+		h2, h3 {
+			color: $color-secondary;
+		}
+	}
+}
+
+aside {
+	.search-form {
+		width: 100%;
+		@media all and (max-width:991px) {
+			display: none;
+		}
+
+		* {
+			width: 100%;
+			border-left: 0;
+			border-right: 0;
+			border-top: 0;
+			margin-bottom: 40px;
+		}
+
+		input {
+			padding-bottom: 4px;
+		}
+	}
+
+	h4 {
+		margin-bottom: 12px;
+	}
+
+	ul {
+		margin-bottom: 28px;
+		padding-left: 15px;
+	}
+
+	li {
+		margin: 12px 0;
+
+		a {
+			&:hover {
+				color: $color-secondary;
+			}
+		}
+	}
+}

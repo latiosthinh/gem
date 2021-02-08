@@ -24,7 +24,7 @@
 				<div class="row">
 					<?php while ( have_posts() ) : the_post(); ?>
 					<div class="col-4">
-						<article>
+						<article class="style-1">
 							<a class="entry-thumbnail" href="<?php the_permalink(); ?>">
 								<?= the_post_thumbnail( 'full' ) ?>
 							</a>
