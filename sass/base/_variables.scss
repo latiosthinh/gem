@@ -177,6 +177,12 @@ $dark-sea: #162a73;
 	}
 }
 
+.hidden-mobile {
+	@media all and (max-width:991px) {
+		display: none !important;
+	}
+}
+
 @keyframes ltr {
 	0%, 100% { transform: translate(-15%, -50%); }
 	50% { transform: translate(15%, -50%); }

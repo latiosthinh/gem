@@ -51,7 +51,7 @@ $events = get_terms( [
 			while ( $s_posts->have_posts() ) :
 				$s_posts->the_post();
 			?>
-			<li>
+			<li class="<?= 'special' !== $s->slug ?: 'special' ?>">
 				<a class="<?= 'special' !== $s->slug ?: 'fw-5' ?>" href="<?php the_permalink() ?>"><?php the_title(); ?></a>
 				<img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" />
 			</li>
@@ -59,6 +59,8 @@ $events = get_terms( [
 		</ul>
 
 		<?php endforeach; ?>
+
+		<a class="back">back</a>
 	</div>
 
 	<div id="menu-case-studies" class="menu-children menu-second">
@@ -73,8 +75,8 @@ $events = get_terms( [
 			<?php endwhile; ?>
 		</ul>
 		
-		<p>FEATURED</p>
-		<ul class="d-flex">
+		<p class="hidden-mobile">FEATURED</p>
+		<ul class="d-flex hidden-mobile">
 			<?php
 			$c_posts = new WP_Query( [
 				'post_type'      => 'case-study',
@@ -89,6 +91,8 @@ $events = get_terms( [
 			</li>
 			<?php endwhile; ?>
 		</ul>
+
+		<a class="back">back</a>
 	</div>
 
 	<div id="menu-event" class="menu-children menu-second">
@@ -103,8 +107,8 @@ $events = get_terms( [
 			<?php endforeach; ?>
 		</ul>
 		
-		<p>FEATURED</p>
-		<ul class="d-flex">
+		<p class="hidden-mobile">FEATURED</p>
+		<ul class="d-flex hidden-mobile">
 			<?php
 			$c_posts = new WP_Query( [
 				'post_type'      => 'case-study',
@@ -120,6 +124,8 @@ $events = get_terms( [
 			</li>
 			<?php endwhile; ?>
 		</ul>
+
+		<a class="back">back</a>
 	</div>
 
 	<div id="menu-resource-center" class="menu-children menu-second">
@@ -137,8 +143,8 @@ $events = get_terms( [
 			</li>
 		</ul>
 		
-		<p>FEATURED</p>
-		<ul class="d-flex">
+		<p class="hidden-mobile">FEATURED</p>
+		<ul class="d-flex hidden-mobile">
 			<?php
 			$b_posts = new WP_Query( [
 				'post_type'      => 'post',
@@ -154,5 +160,7 @@ $events = get_terms( [
 			</li>
 			<?php endwhile; ?>
 		</ul>
+
+		<a class="back">back</a>
 	</div>
 </nav>

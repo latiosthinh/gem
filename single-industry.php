@@ -156,5 +156,11 @@ $post_slug = $post->post_name;
 	</div>
 </section>
 
+<section class="home-contact about-contact industry-contact">
+	<div class="container">
+		<?= do_shortcode( '[contact-form-7 id="166" title="Send us a request"]' ) ?>
+	</div>
+</section>
+
 <?php
 get_footer();

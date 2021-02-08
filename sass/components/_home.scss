@@ -7,6 +7,16 @@
 	&__content {
 		margin-bottom: 19%;
 
+		@media all and (max-width:991px) {
+			text-align: center;
+		}
+
+		p {
+			@media all and (max-width:991px) {
+				justify-content: center;
+			}
+		}
+
 		h1 {
 			margin: 16px 0 24px;
 		}
@@ -37,6 +47,7 @@
 
 		@media all and (max-width:991px) {
 			grid-template-columns: 1fr;
+			padding-top: 20px;
 		}
 
 		.thumbnail {
@@ -182,8 +193,16 @@
 		'big s3 s4';
 
 	@media all and (max-width:991px) {
-		padding-left: 15px;
-		padding-right: 15px;
+		padding-left: 10px;
+		padding-right: 10px;
+
+		grid-template-columns: 1fr;
+		grid-template-areas:
+			'big'
+			's1'
+			's2'
+			's3'
+			's4';
 	}
 
 	article {
@@ -250,6 +269,10 @@
 	.thumbnail-big {
 		height: 947px;
 
+		@media all and (max-width:991px) {
+			height: 305px;
+		}
+
 		& + .entry-content {
 			position: absolute;
 			bottom: 0;
@@ -286,6 +309,10 @@
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-gap: 4px;
+
+	@media all and (max-width:991px) {
+		grid-template-columns: 1fr;
+	}
 
 	.entry-content {
 		background: $color-grey;
@@ -379,6 +406,14 @@
 	padding-top: 100px;
 	padding-bottom: 90px;
 
+	label {
+		span {
+			@media all and (max-width:991px) {
+				min-width: 100px;
+			}
+		}
+	}
+
 	.gem-form {
 		margin-top: 90px;
 	}
@@ -397,6 +432,10 @@
 
 	.wpcf7-form-control-wrap {
 		width: 70%;
+
+		@media all and (max-width:991px) {
+			width: 100%;
+		}
 	}
 
 	textarea {

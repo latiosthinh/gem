@@ -105,11 +105,19 @@
 		margin-left: 12px;
 		margin-right: 40px;
 		font-weight: 300;
+
+		@media all and (max-width:991px) {
+			margin-right: 40%;
+		}
 	}
 }
 
 .single-career-content {
 	padding: 60px 0;
+
+	@media all and (max-width:991px) {
+		padding: 40px 20px;
+	}
 
 	.col-4 {
 		@media all and (min-width:1200px) {

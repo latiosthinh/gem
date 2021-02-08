@@ -12,6 +12,10 @@ document.addEventListener( 'DOMContentLoaded', function() {
 		header.classList.add( 'sticky' );
 	}
 
+	if ( window.innerWidth < 992 ) {
+		header.classList.add( 'sticky' );
+	}
+
 	const searchControl = document.getElementById( 'search-control' );
 	const searchClose   = document.getElementById( 'btn-search-close' );
 	const searchWraper  = document.querySelector( '.header-search__wrapper' );
@@ -83,8 +87,9 @@ document.addEventListener( 'DOMContentLoaded', function() {
 		}, autoPlayTime);
 	}
 
-	const navControl = document.getElementById( 'nav-control' );
-	const mainMenu   = document.querySelector( '.main-menu' );
+	const navControl   = document.getElementById( 'nav-control' );
+	const mainMenu     = document.querySelector( '.main-menu' );
+	const back         = document.querySelector( '.back' );
 	const menuItems    = document.querySelectorAll( '.menu-parent__item' );
 	const menuChildren = document.querySelectorAll( '.menu-children' );
 
@@ -115,7 +120,27 @@ document.addEventListener( 'DOMContentLoaded', function() {
 
 			document.getElementById( e.dataset.href ).classList.add( 'active' );
 		} )
+
+		e.addEventListener( 'touchstart', () => {
+			menuItems.forEach( e => {
+				e.parentElement.classList.remove( 'active' );
+			} )
+
+			menuChildren.forEach( e => {
+				e.classList.remove( 'active' );
+			} )
+
+			e.parentElement.classList.add( 'active' )
+
+			document.getElementById( e.dataset.href ).classList.add( 'active' );
+		} )
 	});
+
+	back.addEventListener( 'click', () => {
+		menuChildren.forEach( e => {
+			e.classList.remove( 'active' );
+		} )
+	} )
 
 	/** Tabs */
 	const tabLinks    = document.querySelectorAll( '.tab-link' );

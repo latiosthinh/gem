@@ -25,6 +25,15 @@
 
 		& > p:first-of-type {
 			width: 66%;
+
+			@media all and (max-width:991px) {
+				width: 100%;
+			}
+		}
+
+		@media all and (max-width:991px) {
+			flex-direction: column;
+			align-items: flex-start;
 		}
 	}
 
@@ -35,6 +44,10 @@
 		border-bottom: 1px solid #fff;
 		padding-bottom: 8px;
 		font-size: 20px;
+
+		@media all and (max-width:991px) {
+			font-size: 13px;
+		}
 	}
 
 	.wpcf7-form-control-wrap {

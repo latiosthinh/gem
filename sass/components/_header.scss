@@ -1,12 +1,15 @@
 .site-header {
-	padding-top: 30px;
-	padding-bottom: 30px;
+	padding: 30px 0;
 	position: fixed;
 	z-index: 20;
 	top: 0;
 	left: 0;
 	width: 100%;
 	background: transparent;
+
+	@media all and (max-width:991px) {
+		padding: 15px 0;
+	}
 
 	&.fixed, &.sticky {
 		background: #fff;
@@ -34,6 +37,10 @@
 		display: block;
 		width: 120px;
 		filter: brightness(0) invert(1);
+
+		@media all and (max-width:991px) {
+			margin-left: 100px;
+		}
 	}
 
 	nav {
@@ -50,6 +57,11 @@
 	top: 0;
 	left: 0;
 	z-index: 20;
+
+	@media all and (max-width:991px) {
+		width: 65px;
+		height: 75px;
+	}
 
 	& + div {
 		display: none;
@@ -108,6 +120,10 @@
 
 #search-control {
 	margin-left: 60px;
+
+	@media all and (max-width:991px) {
+		margin-left: 15px;
+	}
 }
 
 .trp-language-switcher {
@@ -205,6 +221,10 @@
 	padding-top: 25px;
 	padding-bottom: 25px;
 
+	@media all and (max-width:991px) {
+		height: 100vh;
+	}
+
 	ul {
 		display: flex;
 		flex-direction: column;
@@ -215,12 +235,28 @@
 		padding: 15px 0;
 		width: 17%;
 		justify-content: space-between;
+
+		@media all and (max-width:991px) {
+			width: 100%;
+		}
 	}
 
 	a {
 		font-weight: 500;
 		color: #fff;
 		font-size: 20px;
+	}
+}
+
+.back {
+	text-decoration: underline;
+	position: absolute;
+	bottom: 13%;
+	left: 50%;
+	transform: translateX(-50%);
+
+	@media all and (min-width:1200px) {
+		display: none;
 	}
 }
 
@@ -238,6 +274,11 @@
 	transition: .3s;
 	visibility: hidden;
 
+	@media all and (max-width:991px) {
+		width: 100%;
+		left: 0;
+	}
+
 	&.active {
 		opacity: 1;
 		transform: translateX(0);
@@ -251,10 +292,15 @@
 
 	ul {
 		margin-top: 40px;
+		flex-wrap: wrap;
 
 		&:not(:last-child) {
 			li {
 				flex: 0 0 20%;
+
+				@media all and (max-width:991px) {
+					flex: 0 0 50%;
+				}
 			}
 		}
 
@@ -266,6 +312,12 @@
 	}
 
 	li {
+		&:first-child, &.special {
+			@media all and (max-width:991px) {
+				flex: 0 0 100% !important;
+			}
+		}
+
 		img {
 			margin-left: 8px;
 		}
