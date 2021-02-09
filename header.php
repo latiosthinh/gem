@@ -46,6 +46,8 @@
 				<img src="<?= NOVUS_IMG . '/logo.svg' ?>" alt="<?= bloginfo() ?>">
 			</a>
 
+			<?php novus_breadcrumbs(); ?>
+
 			<div class="nav-cta">
 				<?= do_shortcode( '[language-switcher]' ); ?>
 

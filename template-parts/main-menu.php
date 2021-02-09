@@ -133,7 +133,7 @@ $events = get_terms( [
 
 		<ul class="d-flex">
 			<li>
-				<a class="fw-5" href="<?= get_permalink( get_option( 'page_for_posts' ) ) ?>">Blog</a>
+				<a class="fw-5" href="<?= get_permalink( get_page_by_path( 'posts' ) ) ?>">Blog</a>
 				<img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" />
 			</li>
 

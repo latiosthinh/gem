@@ -411,11 +411,21 @@
 	.guest-item {
 		margin-top: 40px;
 		text-align: center;
+		cursor: pointer;
 
 		&:hover {
 			img {
 				filter: grayscale(0);
 			}
+		}
+	}
+
+	.guest-detail {
+		margin-top: 40px;
+		display: none;
+
+		&.active {
+			display: block;
 		}
 	}
 

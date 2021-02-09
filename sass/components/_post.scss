@@ -1,4 +1,4 @@
-.blog {
+.blog, .page-template-blog {
 	aside {
 		@media all and (min-width:1200px) {
 			padding-left: 15%;
@@ -40,6 +40,20 @@
 	}
 }
 
+.blog {
+	.blog-posts {
+		@media all and (min-width:1200px) {
+			padding-top: 150px;
+		}
+	}
+
+	aside {
+		@media all and (min-width:1200px) {
+			padding-left: 10px;
+		}
+	}
+}
+
 .search {
 	.blog-posts {
 		padding: 90px 0;
@@ -71,6 +85,12 @@
 
 	.blog-posts {
 		padding-bottom: 90px;
+	}
+
+	aside {
+		@media all and (min-width:1200px) {
+			padding-left: 10px;
+		}
 	}
 }
 

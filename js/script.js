@@ -136,7 +136,7 @@ document.addEventListener( 'DOMContentLoaded', function() {
 		} )
 	});
 
-	back.addEventListener( 'click', () => {
+	back.addEventListener( 'touchstart', () => {
 		menuChildren.forEach( e => {
 			e.classList.remove( 'active' );
 		} )
@@ -158,6 +158,18 @@ document.addEventListener( 'DOMContentLoaded', function() {
 
 			e.classList.add( 'active' )
 			document.getElementById( e.dataset.href ).classList.add( 'active' )
+		} )
+	});
+
+	const guestItems = document.querySelectorAll( '.guest-item' );
+	const guestDetails = document.querySelectorAll( '.guest-detail' );
+	guestItems.forEach( e => {
+		e.addEventListener( 'click', () => {
+			guestDetails.forEach( e => {
+				e.classList.remove( 'active' )
+			} )
+
+			e.nextElementSibling.classList.add( 'active' );
 		} )
 	});
 

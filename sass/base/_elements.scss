@@ -138,6 +138,10 @@ img {
 
 	.wpcf7-form-control-wrap {
 		width: 70%;
+
+		&.your-message {
+			width: 100%;
+		}
 	}
 
 	input[type=text],
@@ -298,4 +302,40 @@ input {
 .wp-block-image figcaption {
 	text-align: center;
 	color: #888;
+}
+
+.breadcrumbs {
+	color: #fff;
+	display: flex;
+	align-items: center;
+	margin-left: 90px;
+	transition: .3s;
+
+	@media all and (max-width:991px) {
+		display: none;
+	}
+
+	li {
+		list-style: none;
+		font-weight: 500;
+	}
+
+	a {
+		color: #fff;
+	}
+
+	i {
+		font-style: normal;
+		margin: 0 16px;
+	}
+
+	.breadcrumbs-item {
+		&:first-of-type {
+			display: none;
+
+			& + i {
+				display: none;
+			}
+		}
+	}
 }

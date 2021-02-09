@@ -142,7 +142,10 @@ $post_slug = $post->post_name;
 					</div>
 				</article>
 			</div>
-		<?php endwhile; ?>
+		<?php
+		endwhile;
+		wp_reset_postdata();
+		?>
 		</div>
 		
 		<div class="col-12">
@@ -152,6 +155,86 @@ $post_slug = $post->post_name;
 					<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right.svg' ?>">
 				</span>
 			</a>
+		</div>
+	</div>
+</section>
+
+<section class="industry-offer">
+	<div class="container">
+		<div class="row">
+			<div class="col-3">
+				<h2>What we offer</h2>
+				<p><?= rwmb_meta( 'offer_content', null, $id ) ?></p>
+
+				<a class="btn-1 fw-5" href="<?= rwmb_meta( 'url', null, $id ) ?>">
+					<span>
+						Download Services Offering
+						<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right.svg' ?>">
+					</span>
+				</a>
+			</div>
+
+			<div class="col-3">
+				<div class="offer-content">
+					<h3><?= rwmb_meta( 'offer_1_title', null, $id ); ?></h3>
+					<p><?= rwmb_meta( 'offer_1_content', null, $id ) ?></p>
+
+					<img class="hidden-mobile" src="<?= rwmb_meta( 'offer_1_image', null, $id )[ 'full_url' ]; ?>">
+				</div>
+			</div>
+
+			<div class="col-3">
+				<div class="offer-content">
+					<h3><?= rwmb_meta( 'offer_2_title', null, $id ) ?></h3>
+					<p><?= rwmb_meta( 'offer_2_content', null, $id ) ?></p>
+
+					<img class="hidden-mobile" src="<?= rwmb_meta( 'offer_1_image', null, $id )[ 'full_url' ]; ?>">
+				</div>
+			</div>
+
+			<div class="col-3">
+				<div class="offer-content">
+					<h3><?= rwmb_meta( 'offer_3_title', null, $id ) ?></h3>
+					<p><?= rwmb_meta( 'offer_3_content', null, $id ) ?></p>
+
+					<img class="hidden-mobile" src="<?= rwmb_meta( 'offer_1_image', null, $id )[ 'full_url' ]; ?>">
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="industry-why-us">
+	<div class="container">
+		<h2>Why us</h2>
+
+		<div class="row">
+			<div class="col-4">
+				<div class="why-content">
+					<img src="<?= rwmb_meta( 'why_us_1_image', null, $id )[ 'full_url' ]; ?>">
+
+					<h4><?= rwmb_meta( 'why_us_1_title', null, $id ) ?></h4>
+					<p><?= rwmb_meta( 'why_us_1_content', null, $id ) ?></p>
+				</div>
+			</div>
+
+			<div class="col-4">
+				<div class="why-content">
+					<img src="<?= rwmb_meta( 'why_us_2_image', null, $id )[ 'full_url' ]; ?>">
+
+					<h4><?= rwmb_meta( 'why_us_2_title', null, $id ) ?></h4>
+					<p><?= rwmb_meta( 'why_us_2_content', null, $id ) ?></p>
+				</div>
+			</div>
+
+			<div class="col-4">
+				<div class="why-content">
+					<img src="<?= rwmb_meta( 'why_us_3_image', null, $id )[ 'full_url' ]; ?>">
+
+					<h4><?= rwmb_meta( 'why_us_3_title', null, $id ) ?></h4>
+					<p><?= rwmb_meta( 'why_us_3_content', null, $id ) ?></p>
+				</div>
+			</div>
 		</div>
 	</div>
 </section>

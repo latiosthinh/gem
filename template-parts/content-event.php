@@ -80,6 +80,19 @@ get_header();
 						<h4><?= $a['name'] ?></h4>
 						<p><?= $a['position'] ?></p>
 					</div>
+					<div class="col-6 guest-detail hidden-mobile">
+						<div class="row">
+							<div class="col-2 clsecond fw-5">About</div>
+							<div class="col-10">
+								<?= $a[ 'about' ] ?>
+							</div>
+
+							<div class="col-2 clsecond fw-5">Education</div>
+							<div class="col-10">
+								<?= $a[ 'education' ] ?>
+							</div>
+						</div>
+					</div>
 					<?php endforeach; ?>
 				</div>
 			</div>

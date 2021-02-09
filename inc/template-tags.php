@@ -163,3 +163,127 @@ if ( ! function_exists( 'wp_body_open' ) ) :
 		do_action( 'wp_body_open' );
 	}
 endif;
+
+function novus_breadcrumbs( $args = '' ) {
+	if ( is_front_page() ) {
+		return;
+	}
+
+	$args = wp_parse_args(
+		$args,
+		[
+			'separator'         => '<i>&gt;</i>',
+			'home_label'        => '',
+			'home_class'        => 'home',
+			'before'            => '<ul class="breadcrumbs container">',
+			'after'             => '</ul>',
+			'before_item'       => '<li class="breadcrumbs-item">',
+			'after_item'        => '</li>',
+			'taxonomy'          => 'category',
+			'display_last_item' => true,
+		]
+	);
+
+	$args = apply_filters( 'novus_breadcrumbs_args', $args );
+
+	$items = [];
+
+	$title = '';
+
+	// HTML template for each item.
+	$item_tpl_link = $args['before_item'] . '
+		<span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+			<a href="%s" itemprop="url"><span itemprop="title">%s</span></a>
+		</span>
+	' . $args['after_item'];
+	$item_text_tpl = $args['before_item'] . '
+		<span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+			<span itemprop="title">%s</span>
+		</span>
+	' . $args['after_item'];
+
+	// Home.
+	if ( ! $args['home_class'] ) {
+		$items[] = sprintf( $item_tpl_link, esc_url( home_url( '/' ) ), $args['home_label'] );
+	} else {
+		$items[] = $args['before_item'] . sprintf(
+			'<span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+				<a class="%s" href="%s" itemprop="url"><span itemprop="title">%s</span></a>
+			</span>' . $args['after_item'],
+			esc_attr( $args['home_class'] ),
+			esc_url( home_url() ),
+			$args['home_label']
+		);
+	}
+
+	if ( is_home() && ! is_front_page() ) {
+		$page = get_option( 'page_for_posts' );
+		if ( $args['display_last_item'] ) {
+			$title = get_the_title( $page );
+		}
+	} elseif ( is_post_type_archive() ) {
+		// If post is a custom post type.
+		$query     = get_queried_object();
+		$post_type = $query->name;
+		
+		$post_type_object       = get_post_type_object( $post_type );
+		$post_type_archive_link = get_post_type_archive_link( $post_type );
+		$title                  = $post_type_object->labels->menu_name;
+	} elseif ( is_single() ) {
+
+		// If post is a custom post type.
+		$post_type = get_post_type();
+		if ( 'post' !== $post_type ) {
+			$post_type_object       = get_post_type_object( $post_type );
+			$post_type_archive_link = get_post_type_archive_link( $post_type );
+			$items[]                = sprintf( $item_tpl_link, $post_type_archive_link, $post_type_object->labels->menu_name );
+		}
+		// Terms.
+		$terms = get_the_terms( get_the_ID(), $args['taxonomy'] );
+		if ( $terms && ! is_wp_error( $terms ) ) {
+			$term    = current( $terms );
+			$terms   = vt_get_term_parents( $term->term_id, $args['taxonomy'] );
+			$terms[] = $term->term_id;
+			foreach ( $terms as $term_id ) {
+				$term    = get_term( $term_id, $args['taxonomy'] );
+				$items[] = sprintf( $item_tpl_link, get_term_link( $term, $args['taxonomy'] ), $term->name );
+			}
+		}
+
+		if ( $args['display_last_item'] ) {
+			$title = get_the_title();
+
+		}
+	} elseif ( is_tax() || is_category() || is_tag() ) {
+		$current_term = get_queried_object();
+		$terms        = vt_get_term_parents( get_queried_object_id(), $current_term->taxonomy );
+		foreach ( $terms as $term_id ) {
+			$term    = get_term( $term_id, $current_term->taxonomy );
+			$items[] = sprintf( $item_tpl_link, get_category_link( $term_id ), $term->name );
+		}
+		if ( $args['display_last_item'] ) {
+			$title = $current_term->name;
+
+		}
+	} elseif ( is_search() ) {
+		/* translators: search query */
+		$title = sprintf( esc_html__( 'Search results for &quot;%s&quot;', 'novus' ), get_search_query() );
+	} elseif ( is_404() ) {
+		$title = esc_html__( 'Not found', 'novus' );
+	} elseif ( is_author() ) {
+		$author_obj = get_queried_object();
+		// Queue the first post, that way we know what author we're dealing with (if that is the case).
+		$title = '<span class="vcard">' . $author_obj->display_name . '</span>';
+	} elseif ( is_day() ) {
+		$title = sprintf( esc_html( '%s', 'novus' ), get_the_date() );
+	} elseif ( is_month() ) {
+		$title = sprintf( esc_html( '%s', 'novus' ), get_the_date( 'F Y' ) );
+	} elseif ( is_year() ) {
+		$title = sprintf( esc_html( '%s', 'novus' ), get_the_date( 'Y' ) );
+	} else {
+		$title = esc_html__( get_queried_object()->post_title, 'novus' );
+	} // End if().
+	$items[] = sprintf( $item_text_tpl, $title );
+
+	echo wp_kses_post( $args['before'] . implode( $args['separator'], $items ) . $args['after'] );
+}
