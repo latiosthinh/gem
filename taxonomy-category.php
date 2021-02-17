@@ -55,11 +55,11 @@
 					</div>
 					<?php endwhile; ?>
 				</div>
+
+				<?php get_template_part( 'template-parts/pagination' ) ?>
 			</div>
 			
 		</div>
-
-		<?php get_template_part( 'template-parts/pagination' ) ?>
 	</div>
 </section>
 

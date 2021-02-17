@@ -151,13 +151,13 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-com
 	}
 }
 
-.btn-1:after {
+.btn-1:after, .btn-2:after {
 	background: -moz-linear-gradient(right, #55adff 0%, #307EED 100%);
 	background: -webkit-linear-gradient(right, #55adff 0%, #307EED 100%);
 	background: linear-gradient(to right, #55adff 0%, #307EED 100%);
 }
 
-.btn-1:before {
+.btn-1:before, .btn-2:before {
 	background: -moz-linear-gradient(right, #307EED 0%, #244cb4 100%);
 	background: -webkit-linear-gradient(right, #307EED 0%, #244cb4 100%);
 	background: linear-gradient(to right, #307EED 0%, #244cb4 100%);
@@ -299,6 +299,61 @@ Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-com
 }
 
 .btn-1:hover img {
+	animation: ltr 1s linear infinite;
+}
+
+.btn-2 {
+	display: inline-block;
+	overflow: hidden;
+	position: relative;
+	padding: 2px;
+}
+
+.btn-2:before {
+	content: '';
+	display: block;
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	transition: .3s;
+}
+
+.btn-2:after {
+	content: '';
+	display: block;
+	position: absolute;
+	z-index: 0;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.btn-2 img {
+	position: absolute;
+	top: 50%;
+	right: 24px;
+	transform: translateY(-50%);
+	z-index: 2;
+}
+
+.btn-2 span {
+	position: inherit;
+	display: inline-block;
+	padding: 9px 44px 10px 22px;
+	z-index: 2;
+	color: #0F1550;
+	background: #fff;
+}
+
+.btn-2:hover:before {
+	transform: translateX(100%);
+}
+
+.btn-2:hover img {
 	animation: ltr 1s linear infinite;
 }
 
@@ -977,7 +1032,7 @@ input {
 	z-index: 4;
 	opacity: 0;
 	transform: translateX(30%);
-	transition: .3s;
+	transition: .5s;
 	visibility: hidden;
 }
 
@@ -1004,17 +1059,17 @@ input {
 	flex-wrap: wrap;
 }
 
-.menu-children ul:not(:last-child) li {
+.menu-children ul:not(:last-of-type) li {
 	flex: 0 0 20%;
 }
 
 @media all and (max-width: 991px) {
-	.menu-children ul:not(:last-child) li {
+	.menu-children ul:not(:last-of-type) li {
 		flex: 0 0 50%;
 	}
 }
 
-.menu-children ul:last-child {
+.menu-children ul:last-of-type {
 	justify-content: space-between;
 	padding-top: 40px;
 	border-top: 1px solid #000;
@@ -1088,7 +1143,7 @@ input {
 }
 
 .site-footer {
-	background: linear-gradient(150deg, #244cb4 0%, #162a73 50%);
+	background: linear-gradient(145.06deg, #203B9B 16.87%, #0F1550 67.68%);
 	padding-bottom: 21px;
 }
 
@@ -1739,6 +1794,11 @@ input {
 	background: #F2F2F2;
 	padding: 40px;
 	text-align: center;
+	transition: .3s;
+}
+
+.about-people .item:hover {
+	box-shadow: 0 0 10px #c4c4c4;
 }
 
 .about-people img {
@@ -2065,6 +2125,18 @@ input {
 	text-overflow: ellipsis;
 }
 
+@media all and (min-width: 1450px) {
+	.event-item img {
+		height: 480px;
+	}
+}
+
+@media all and (min-width: 1200px) {
+	.event-item img {
+		height: 350px;
+	}
+}
+
 .event-item:hover img {
 	transform: scale(1.2);
 }
@@ -2093,13 +2165,12 @@ input {
 
 @media all and (min-width: 1200px) {
 	.event-single-content article {
-		padding-right: 50px;
+		padding-right: 100px;
 	}
 }
 
 @media all and (min-width: 1200px) {
 	.event-single-content aside {
-		padding-left: 50px;
 		margin-top: -90px;
 	}
 }
@@ -2117,6 +2188,15 @@ input {
 	align-items: flex-start;
 }
 
+.event-single-content aside h2 + p {
+	margin-bottom: 40px;
+}
+
+.event-single-content aside .wpcf7-checkbox {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
 .event-single-content aside .wpcf7-checkbox.callback {
 	color: #307EED;
 	margin-top: -35px;
@@ -2124,26 +2204,61 @@ input {
 	white-space: nowrap;
 }
 
-.event-single-content aside h2 + p {
-	margin-bottom: 40px;
-}
-
-.event-single-content aside .wpcf7-checkbox {
-	display: flex;
-	flex-direction: column;
+.event-single-content aside .wpcf7-checkbox.callback input + span:before {
+	border: 1px solid #307EED;
 }
 
 .event-single-content aside .wpcf7-checkbox input {
-	margin-top: 5px;
-	margin-right: 8px;
+	visibility: hidden;
+	position: absolute;
+}
+
+.event-single-content aside .wpcf7-checkbox input + span:before {
+	display: block;
+	position: absolute;
+	content: '';
+	border-radius: 0;
+	height: 10px;
+	width: 10px;
+	top: 5px;
+	left: 0px;
+	border: 1px solid #fff;
+}
+
+.event-single-content aside .wpcf7-checkbox input + span:after {
+	display: block;
+	position: absolute;
+	content: "\2713";
+	height: 10px;
+	width: 10px;
+	top: -4px;
+	left: 0;
+	visibility: hidden;
+	font-size: 18px;
+	text-align: center;
+	line-height: 30px;
+}
+
+.event-single-content aside .wpcf7-checkbox input:checked + span::before {
+	background: transparent;
+}
+
+.event-single-content aside .wpcf7-checkbox input:checked + span:after {
+	visibility: visible;
 }
 
 .event-single-content aside .wpcf7-checkbox .wpcf7-list-item {
 	margin-left: 0;
+	position: relative;
+}
+
+.event-single-content aside .wpcf7-checkbox .wpcf7-list-item.last {
+	grid-area: 5 / 1 / span 2 / span 2;
 }
 
 .event-single-content aside .wpcf7-checkbox .wpcf7-list-item span {
 	font-weight: 300;
+	padding-left: 20px;
 }
 
 .event-single-content .multi-checkbox {
@@ -2170,6 +2285,7 @@ input {
 
 .event-single-content form textarea {
 	height: 28px;
+	width: 100%;
 }
 
 .event-single-content h2 {
@@ -2219,8 +2335,10 @@ input {
 	}
 }
 
-.event-guest {
-	margin-top: 75px;
+@media all and (max-width: 991px) {
+	.event-guest {
+		margin-top: 75px;
+	}
 }
 
 .event-guest .guest-item {
@@ -2461,9 +2579,15 @@ input {
 	padding: 14% 0;
 }
 
+.blog-banner h2 {
+	margin-bottom: 8px;
+}
+
 .case-study-banner {
-	padding: 15% 0;
+	height: 66.6667vh;
 	position: relative;
+	display: flex;
+	align-items: center;
 }
 
 .case-study-banner:before {
@@ -2560,9 +2684,11 @@ input {
 	color: #307EED;
 }
 
-.single-case-study .case-study-banner {
-	padding-top: 25%;
-	padding-bottom: 60px;
+.single-case-study .case-study-banner .container {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 60px;
 }
 
 .single-case-study .case-study-banner .post-tags {
@@ -2589,7 +2715,6 @@ input {
 @media all and (min-width: 1500px) {
 	.single-case-study .case-study-content aside div {
 		padding: 90px 40px;
-		margin-top: -95px;
 	}
 }
 
@@ -3007,6 +3132,10 @@ aside li a:hover {
 	color: #307EED;
 }
 
+.post-type-archive-industry .blog-posts {
+	padding: 90px 0;
+}
+
 .industry-banner {
 	height: 100vh;
 	display: flex;
@@ -3114,6 +3243,12 @@ aside li a:hover {
 	background: #F2F2F2;
 	padding: 40px;
 	text-align: center;
+	border: 1px solid #F2F2F2;
+	transition: .3s;
+}
+
+.industry-why-us .why-content:hover {
+	border: 1px solid #307EED;
 }
 
 .industry-why-us .why-content h4 {

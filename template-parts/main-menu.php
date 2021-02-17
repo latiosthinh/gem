@@ -99,12 +99,22 @@ $events = get_terms( [
 		<h3>Explore lastest news</h3>
 
 		<ul class="d-flex">
-			<?php foreach ( $events as $s ) : ?>
+			<li>
+				<a class="fw-5" href="<?= get_post_type_archive_link( 'event' ) ?>">Event calendar</a>
+				<img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" />
+			</li>
+			<?php
+			foreach ( $events as $s ) :
+				if ( $s->slug === 'news' ) :
+			?>
 				<li>
 					<a class="fw-5" href="<?= get_term_link( $s->term_id ) ?>"><?= $s->name; ?></a>
 					<img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" />
 				</li>
-			<?php endforeach; ?>
+			<?php
+				endif;
+			endforeach;
+			?>
 		</ul>
 		
 		<p class="hidden-mobile">FEATURED</p>

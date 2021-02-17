@@ -164,6 +164,30 @@ if ( ! function_exists( 'wp_body_open' ) ) :
 	}
 endif;
 
+function vt_get_term_parents( $term_id = '', $taxonomy = 'category' ) {
+	// Set up some default arrays.
+	$list = [];
+
+	// If no term ID or taxonomy is given, return an empty array.
+	if ( empty( $term_id ) || empty( $taxonomy ) ) {
+		return $list;
+	}
+
+	do {
+		$list[] = $term_id;
+
+		// Get next parent term.
+		$term    = get_term( $term_id, $taxonomy );
+		$term_id = $term->parent;
+	} while ( $term_id );
+
+	// Reverse the array to put them in the proper order for the trail.
+	$list = array_reverse( $list );
+	array_pop( $list );
+
+	return $list;
+}
+
 function novus_breadcrumbs( $args = '' ) {
 	if ( is_front_page() ) {
 		return;
@@ -173,7 +197,7 @@ function novus_breadcrumbs( $args = '' ) {
 		$args,
 		[
 			'separator'         => '<i>&gt;</i>',
-			'home_label'        => '',
+			'home_label'        => esc_html__( 'Home', 'novus' ),
 			'home_class'        => 'home',
 			'before'            => '<ul class="breadcrumbs container">',
 			'after'             => '</ul>',
@@ -252,34 +276,15 @@ function novus_breadcrumbs( $args = '' ) {
 
 		if ( $args['display_last_item'] ) {
 			$title = get_the_title();
-
 		}
 	} elseif ( is_tax() || is_category() || is_tag() ) {
 		$current_term = get_queried_object();
-		$terms        = vt_get_term_parents( get_queried_object_id(), $current_term->taxonomy );
-		foreach ( $terms as $term_id ) {
-			$term    = get_term( $term_id, $current_term->taxonomy );
-			$items[] = sprintf( $item_tpl_link, get_category_link( $term_id ), $term->name );
-		}
-		if ( $args['display_last_item'] ) {
-			$title = $current_term->name;
-
-		}
+		$items[] = sprintf( $item_tpl_link, get_category_link( get_queried_object()->term_id ), get_queried_object()->name );
 	} elseif ( is_search() ) {
 		/* translators: search query */
 		$title = sprintf( esc_html__( 'Search results for &quot;%s&quot;', 'novus' ), get_search_query() );
 	} elseif ( is_404() ) {
 		$title = esc_html__( 'Not found', 'novus' );
-	} elseif ( is_author() ) {
-		$author_obj = get_queried_object();
-		// Queue the first post, that way we know what author we're dealing with (if that is the case).
-		$title = '<span class="vcard">' . $author_obj->display_name . '</span>';
-	} elseif ( is_day() ) {
-		$title = sprintf( esc_html( '%s', 'novus' ), get_the_date() );
-	} elseif ( is_month() ) {
-		$title = sprintf( esc_html( '%s', 'novus' ), get_the_date( 'F Y' ) );
-	} elseif ( is_year() ) {
-		$title = sprintf( esc_html( '%s', 'novus' ), get_the_date( 'Y' ) );
 	} else {
 		$title = esc_html__( get_queried_object()->post_title, 'novus' );
 	} // End if().

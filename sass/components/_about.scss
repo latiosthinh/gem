@@ -90,6 +90,11 @@
 		background: $color-grey;
 		padding: 40px;
 		text-align: center;
+		transition: .3s;
+
+		&:hover {
+			box-shadow: 0 0 10px #c4c4c4;
+		}
 	}
 
 	img {

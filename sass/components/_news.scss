@@ -246,6 +246,16 @@
 		@include set-line( 3, 30 );
 	}
 
+	img {
+		@media all and (min-width:1450px) {
+			height: 480px;
+		}
+
+		@media all and (min-width:1200px) {
+			height: 350px;
+		}
+	}
+
 	&:hover {
 		img {
 			transform: scale(1.2);
@@ -276,13 +286,12 @@
 
 	article {
 		@media all and (min-width:1200px) {
-			padding-right: 50px;
+			padding-right: 100px;
 		}
 	}
 
 	aside {
 		@media all and (min-width:1200px) {
-			padding-left: 50px;
 			margin-top: -90px;
 		}
 
@@ -299,31 +308,83 @@
 			align-items: flex-start;
 		}
 
-		.wpcf7-checkbox.callback {
-			color: #307EED;
-			margin-top: -35px;
-			margin-bottom: 25px;
-			white-space: nowrap;
-		}
-
 		h2 + p {
 			margin-bottom: 40px;
 		}
 
 		.wpcf7-checkbox {
-			display: flex;
-			flex-direction: column;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+
+			&.callback {
+				color: #307EED;
+				margin-top: -35px;
+				margin-bottom: 25px;
+				white-space: nowrap;
+	
+				input + span {
+					&:before {
+						border: 1px solid #307EED;
+					}
+				}
+			}
 			
 			input {
-				margin-top: 5px;
-				margin-right: 8px;
+				visibility: hidden;
+				position: absolute;
+
+				& + span {
+					&:before {
+						display: block;
+						position: absolute;
+						content: '';
+						border-radius: 0;
+						height: 10px;
+						width: 10px;
+						top: 5px;
+						left: 0px;
+						border: 1px solid #fff;
+					}
+
+					&:after {
+						display: block;
+						position: absolute;
+						content: "\2713";
+						height: 10px;
+						width: 10px;
+						top: -4px;
+						left: 0;
+						visibility: hidden;
+						font-size: 18px;
+						text-align: center;
+						line-height: 30px;
+						}
+				}
+
+				&:checked {
+					& + span {
+						&::before {
+							background: transparent;
+						}
+
+						&:after {
+							visibility: visible;
+						}
+					}
+				}
 			}
 
 			.wpcf7-list-item {
 				margin-left: 0;
+				position: relative;
+
+				&.last {
+					grid-area: 5 / 1 / span 2 / span 2;
+				}
 
 				span {
 					font-weight: 300;
+					padding-left: 20px;
 				}
 			}
 		}
@@ -352,6 +413,7 @@
 
 		textarea {
 			height: 28px;
+			width: 100%;
 		}
 	}
 
@@ -406,7 +468,9 @@
 }
 
 .event-guest {
-	margin-top: 75px;
+	@media all and (max-width:991px) {
+		margin-top: 75px;	
+	}
 
 	.guest-item {
 		margin-top: 40px;

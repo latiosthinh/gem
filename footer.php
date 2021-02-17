@@ -27,7 +27,7 @@
 			<div class="row footer-widget">
 				<div class="col-6">
 					<a class="logo" href="<?= home_url() ?>">
-						<img src="<?= NOVUS_IMG . '/logo.svg' ?>" alt="<?= bloginfo() ?>">
+						<img src="<?= NOVUS_IMG . '/logo-big.png' ?>" alt="<?= bloginfo() ?>">
 					</a>
 
 					<?php dynamic_sidebar( 'sidebar-2' ); ?>

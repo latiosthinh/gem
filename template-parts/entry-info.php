@@ -1,5 +1,5 @@
 <div class="entry-info">
-	<span><?= the_date(); ?></span>
+	<span><?= get_the_date(); ?></span>
 
 	<ul class="social-share">
 		<li>Share</li>

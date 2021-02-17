@@ -104,6 +104,12 @@
 		background: $color-grey;
 		padding: 40px;
 		text-align: center;
+		border: 1px solid $color-grey;
+		transition: .3s;
+
+		&:hover {
+			border: 1px solid $color-secondary
+		}
 
 		h4 {
 			margin: 34px auto 8px;

@@ -1,6 +1,8 @@
 .case-study-banner {
-	padding: 15% 0;
+	height: 66.6667vh;
 	position: relative;
+	display: flex;
+	align-items: center;
 
 	&:before {
 		content: '';
@@ -107,8 +109,13 @@
 
 .single-case-study {
 	.case-study-banner {
-		padding-top: 25%;
-		padding-bottom: 60px;
+		
+		.container {
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			bottom: 60px;
+		}
 
 		.post-tags {
 			margin-left: 40px;
@@ -133,7 +140,6 @@
 				
 				@media all and (min-width:1500px) {
 					padding: 90px 40px;
-					margin-top: -95px;
 				}
 			}
 		}

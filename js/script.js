@@ -4,12 +4,21 @@ document.addEventListener( 'DOMContentLoaded', function() {
 	const header = document.getElementById( 'masthead' );
 	const progressBar = document.getElementById( 'progress-bar' );
 
-	const headerHeight = header.offsetHeight + 'px';
-	const postContent  = document.querySelector( '.single-content' );
-	const blogPost     = document.querySelector( '.blog-posts' );
-	if ( postContent || blogPost ) {
+	const headerHeight    = header.offsetHeight + 'px';
+	const postContent     = document.querySelector( '.single-content' );
+	const caseStudyBanner = document.querySelector( '.case-study-banner' );
+	const blog            = document.querySelector( '.page-template-blog' );
+	const blogPost        = document.querySelector( '.blog-posts' );
+
+	const stickeyHeader = () => {
 		postContent ? postContent.style.marginTop = headerHeight : null;
 		header.classList.add( 'sticky' );
+	}
+
+	if ( postContent || blogPost ) {
+		if ( !caseStudyBanner && !blog ) {
+			stickeyHeader();
+		}
 	}
 
 	if ( window.innerWidth < 992 ) {
@@ -161,15 +170,18 @@ document.addEventListener( 'DOMContentLoaded', function() {
 		} )
 	});
 
-	const guestItems = document.querySelectorAll( '.guest-item' );
+	const guestItems   = document.querySelectorAll( '.guest-item' );
 	const guestDetails = document.querySelectorAll( '.guest-detail' );
-	guestItems.forEach( e => {
+
+	guestItems.forEach( (e, index) => {
 		e.addEventListener( 'click', () => {
-			guestDetails.forEach( e => {
-				e.classList.remove( 'active' )
+			guestDetails.forEach( (g, i) => {
+				if ( i !== index ) {
+					g.classList.remove( 'active' )
+				}
 			} )
 
-			e.nextElementSibling.classList.add( 'active' );
+			guestDetails[ index ].classList.toggle( 'active' ) 
 		} )
 	});
 

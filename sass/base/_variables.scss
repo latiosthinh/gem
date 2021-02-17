@@ -177,6 +177,65 @@ $dark-sea: #162a73;
 	}
 }
 
+.btn-2 {
+	display: inline-block;
+	overflow: hidden;
+	position: relative;
+	padding: 2px;
+
+	&:before {
+		content: '';
+		display: block;
+		position: absolute;
+		z-index: 1;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		transition: .3s;
+		@extend %blue-dark;
+	}
+
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+		z-index: 0;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		@extend %blue-light;
+	}
+
+	img {
+		position: absolute;
+		top: 50%;
+		right: 24px;
+		transform: translateY(-50%);
+		z-index: 2;
+	}
+
+	span {
+		position: inherit;
+		display: inline-block;
+		padding: 9px 44px 10px 22px;
+		z-index: 2;
+		color: $color-main;
+		background: #fff;
+	}
+
+	&:hover {
+		&:before {
+			transform: translateX(100%);
+		}
+
+		img {
+			animation: ltr 1s linear infinite;
+		}
+	}
+}
+
 .hidden-mobile {
 	@media all and (max-width:991px) {
 		display: none !important;

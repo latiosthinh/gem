@@ -159,24 +159,25 @@ function gem_post_type_archive( $query ) {
 	}
 
 	if ( is_tax( 'event-category', 'news' ) ) {
-		$query->set( 'posts_per_page', '7' );
+		$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+		if ( $paged > 1 ) {
+			$query->set( 'posts_per_page', 9 );
+		} else {
+			$query->set( 'posts_per_page', 7 );
+		}
 	}
 
-	if ( is_tax( 'event-category', 'event-calendar' ) ) {
-		$query->set( 'posts_per_page', '6' );
-		$query->set( 'offset', '1' );
+	if ( is_post_type_archive( 'event' ) ) {
+		$query->set( 'posts_per_page', 6 );
+		$query->set( 'offset', 1 );
 	}
 
-	if ( is_tax( 'event-category', 'event-calendar' ) ) {
-		$query->set( 'posts_per_page', '6' );
-		$query->set( 'offset', '1' );
-	}
-
-	if ( is_post_type_archive( 'case-study' ) || is_taxonomy( 'case-study-category' ) ) {
-		$query->set( 'posts_per_page', '6' );
+	if ( get_queried_object()->name === 'case-study' ) {
+		$query->set( 'posts_per_page', 6 );
 	}
 
 	if ( is_post_type_archive( 'post' ) ) {
-		$query->set( 'posts_per_page', '8' );
+		$query->set( 'posts_per_page', 6 );
 	}
 }
+

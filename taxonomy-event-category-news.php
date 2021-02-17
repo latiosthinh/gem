@@ -14,53 +14,76 @@ get_header();
 		<div class="row">
 <?php
 $count = 1;
+$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
 while ( have_posts() ) : the_post();
-	if ( $count === 1 ) :
-?>
-	<div class="col-12">
-		<article class="news-item news--big">
-			<a class="entry-thumbnail" href="<?php the_permalink(); ?>">
-				<img src="<?= the_post_thumbnail_url() ?>" alt="<?= get_the_title() ?>">
-			</a>
+	if ( $paged === 1 ) :
+		if ( $count === 1 ) :
+		?>
+			<div class="col-12">
+				<article class="news-item news--big">
+					<a class="entry-thumbnail" href="<?php the_permalink(); ?>">
+						<img src="<?= the_post_thumbnail_url() ?>" alt="<?= get_the_title() ?>">
+					</a>
 
-			<div class="entry-content">
-				<a href="<?php the_permalink(); ?>">
-					<h3><?= get_the_title() ?></h3>
-				</a>
+					<div class="entry-content">
+						<a href="<?php the_permalink(); ?>">
+							<h3><?= get_the_title() ?></h3>
+						</a>
 
-				<span><?php the_date() ?></span>
-				
-				<?php the_excerpt() ?>
+						<span><?= get_the_date() ?></span>
+						
+						<?php the_excerpt() ?>
 
-				<a class="fw-5 cldark d-flex align-center readmore" href="<?php the_permalink(); ?>">
-					Read more
-					<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right-blue.svg' ?>">
-				</a>
+						<a class="fw-5 cldark d-flex align-center readmore" href="<?php the_permalink(); ?>">
+							Read more
+							<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right-blue.svg' ?>">
+						</a>
+					</div>
+				</article>
 			</div>
-		</article>
-	</div>
-<?php else : ?>
-	<div class="col-4">
-		<article class="news-item news--small">
-			<a class="entry-thumbnail" href="<?php the_permalink(); ?>">
-				<img src="<?= the_post_thumbnail_url() ?>" alt="<?= get_the_title() ?>">
-			</a>
+		<?php else : ?>
+			<div class="col-4">
+				<article class="news-item news--small">
+					<a class="entry-thumbnail" href="<?php the_permalink(); ?>">
+						<img src="<?= the_post_thumbnail_url() ?>" alt="<?= get_the_title() ?>">
+					</a>
 
-			<div class="entry-content">
-				<span><?php the_date() ?></span>
+					<div class="entry-content">
+						<span><?= get_the_date() ?></span>
 
-				<a href="<?php the_permalink(); ?>">
-					<h3 class="h4"><?= get_the_title() ?></h3>
-				</a>
+						<a href="<?php the_permalink(); ?>">
+							<h3 class="h4"><?= get_the_title() ?></h3>
+						</a>
 
-				<?php the_excerpt() ?>
+						<?php the_excerpt() ?>
+					</div>
+				</article>
 			</div>
-		</article>
-	</div>
-<?php
+		<?php
+		endif;
+		$count += 1;
+	else :
+	?>
+			<div class="col-4">
+				<article class="news-item news--small">
+					<a class="entry-thumbnail" href="<?php the_permalink(); ?>">
+						<img src="<?= the_post_thumbnail_url() ?>" alt="<?= get_the_title() ?>">
+					</a>
+
+					<div class="entry-content">
+						<span><?= get_the_date() ?></span>
+
+						<a href="<?php the_permalink(); ?>">
+							<h3 class="h4"><?= get_the_title() ?></h3>
+						</a>
+
+						<?php the_excerpt() ?>
+					</div>
+				</article>
+			</div>
+	<?php
 	endif;
-	$count += 1;
 endwhile;
 ?>
 		</div>
