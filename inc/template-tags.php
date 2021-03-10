@@ -196,12 +196,12 @@ function novus_breadcrumbs( $args = '' ) {
 	$args = wp_parse_args(
 		$args,
 		[
-			'separator'         => '<i>&gt;</i>',
+			'separator'         => '',
 			'home_label'        => esc_html__( 'Home', 'novus' ),
 			'home_class'        => 'home',
 			'before'            => '<ul class="breadcrumbs container">',
 			'after'             => '</ul>',
-			'before_item'       => '<li class="breadcrumbs-item">',
+			'before_item'       => '<li class="breadcrumbs-item"><i>&gt;</i>',
 			'after_item'        => '</li>',
 			'taxonomy'          => 'category',
 			'display_last_item' => true,
@@ -216,14 +216,10 @@ function novus_breadcrumbs( $args = '' ) {
 
 	// HTML template for each item.
 	$item_tpl_link = $args['before_item'] . '
-		<span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-			<a href="%s" itemprop="url"><span itemprop="title">%s</span></a>
-		</span>
+		<a href="%s" itemprop="url"><span itemprop="title">%s</span></a>
 	' . $args['after_item'];
 	$item_text_tpl = $args['before_item'] . '
-		<span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-			<span itemprop="title">%s</span>
-		</span>
+		<span itemprop="title">%s</span>
 	' . $args['after_item'];
 
 	// Home.
@@ -231,9 +227,7 @@ function novus_breadcrumbs( $args = '' ) {
 		$items[] = sprintf( $item_tpl_link, esc_url( home_url( '/' ) ), $args['home_label'] );
 	} else {
 		$items[] = $args['before_item'] . sprintf(
-			'<span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-				<a class="%s" href="%s" itemprop="url"><span itemprop="title">%s</span></a>
-			</span>' . $args['after_item'],
+			'<a class="%s" href="%s" itemprop="url"><span itemprop="title">%s</span></a>' . $args['after_item'],
 			esc_attr( $args['home_class'] ),
 			esc_url( home_url() ),
 			$args['home_label']
@@ -249,12 +243,12 @@ function novus_breadcrumbs( $args = '' ) {
 		// If post is a custom post type.
 		$query     = get_queried_object();
 		$post_type = $query->name;
+		// var_dump( $query );
 		
 		$post_type_object       = get_post_type_object( $post_type );
 		$post_type_archive_link = get_post_type_archive_link( $post_type );
 		$title                  = $post_type_object->labels->menu_name;
 	} elseif ( is_single() ) {
-
 		// If post is a custom post type.
 		$post_type = get_post_type();
 		if ( 'post' !== $post_type ) {
@@ -273,12 +267,13 @@ function novus_breadcrumbs( $args = '' ) {
 				$items[] = sprintf( $item_tpl_link, get_term_link( $term, $args['taxonomy'] ), $term->name );
 			}
 		}
-
+		
 		if ( $args['display_last_item'] ) {
 			$title = get_the_title();
 		}
 	} elseif ( is_tax() || is_category() || is_tag() ) {
 		$current_term = get_queried_object();
+		// var_dump( $current_term );
 		$items[] = sprintf( $item_tpl_link, get_category_link( get_queried_object()->term_id ), get_queried_object()->name );
 	} elseif ( is_search() ) {
 		/* translators: search query */

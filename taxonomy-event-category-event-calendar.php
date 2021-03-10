@@ -23,16 +23,16 @@ while ( $event->have_posts() ) : $event->the_post();
 
 		<div class="event-info d-flex clw">
 			<p class="d-iflex">
-				<img style="height:21px" src="<?= NOVUS_IMG . '/clock-w.svg' ?>">
+				<img style="height:21px" src="<?= NOVUS_IMG . '/clock-w.svg' ?>" alt="time">
 				<?php rwmb_the_value( 'datetime', [ 'format' => 'H:i' ] ); ?>
 			</p>
 			<p class="d-iflex">
-				<img style="height:21px" src="<?= NOVUS_IMG . '/calendar-w.svg' ?>">
+				<img style="height:21px" src="<?= NOVUS_IMG . '/calendar-w.svg' ?>" alt="date">
 				<?php rwmb_the_value( 'datetime', [ 'format' => 'F j, Y' ] ); ?>
 			</p>
 
 			<p class="d-flex">
-				<img style="width:17px;height:21px" src="<?= NOVUS_IMG . '/pin-w.svg' ?>">
+				<img style="width:17px;height:21px" src="<?= NOVUS_IMG . '/pin-w.svg' ?>" alt="location">
 				<?= rwmb_meta( 'location' ) ?>
 			</p>
 		</div>
@@ -40,7 +40,7 @@ while ( $event->have_posts() ) : $event->the_post();
 		<a class="btn-1 fw-5" href="<?= the_permalink() ?>">
 			<span>
 				Sign up now
-				<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right.svg' ?>">
+				<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right.svg' ?>" alt="go to">
 			</span>
 		</a>
 	</div>

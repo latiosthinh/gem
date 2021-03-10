@@ -41,7 +41,7 @@
 
 				<a class="fw-5 cldark d-flex align-center" href="#">
 					Request a demo
-					<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right-blue.svg' ?>">
+					<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right-blue.svg' ?>" alt="request">
 				</a>
 			</div>
 		</article>

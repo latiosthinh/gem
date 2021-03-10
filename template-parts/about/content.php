@@ -7,7 +7,7 @@
 				<a class="btn-1 fw-5" href="<?= get_permalink( get_page_by_path( 'contact-us' ) ) ?>">
 					<span>
 						Talk with our experts
-						<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right.svg' ?>">
+						<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right.svg' ?>" alt="go to">
 					</span>
 				</a>
 			</div>
@@ -22,12 +22,14 @@
 <section class="about-path">
 	<div class="container">
 		<div class="row">
-			<div class="col-6">
+			<div class="col-12">
 				<h2>
 				The things guide our works and <br>
 				shape how we serve customers
 				</h2>
+			</div>
 
+			<div class="col-6">
 				<div class="blk d-flex">
 					<div>
 						<img style="width:44px;height:44px;" src="<?= NOVUS_IMG . '/core.svg' ?>" alt="gem core value">
@@ -38,7 +40,7 @@
 					</div>
 				</div>
 
-				<img src="<?= NOVUS_IMG . '/path.svg' ?>" alt="gem path">
+				<img class="hidden-mobile" src="<?= NOVUS_IMG . '/path.svg' ?>" alt="gem path">
 			</div>
 
 			<div class="col-6">
@@ -61,6 +63,10 @@
 						<p><?= rwmb_meta( 'mission' ) ?></p>
 					</div>
 				</div>
+			</div>
+
+			<div class="col-6 hidden-pc">
+				<img src="<?= NOVUS_IMG . '/path.svg' ?>" alt="gem path">
 			</div>
 		</div>
 		

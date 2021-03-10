@@ -20,7 +20,7 @@
 				<a class="btn-1 fw-5" href="">
 					<span>
 						Explore our case studies
-						<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right.svg' ?>">
+						<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right.svg' ?>" alt="go to">
 					</span>
 				</a>
 			</div>

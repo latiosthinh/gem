@@ -23,23 +23,23 @@
 
 					<div class="seminar-info">
 						<p class="d-iflex">
-							<img style="height:21px" src="<?= NOVUS_IMG . '/clock.svg' ?>">
+							<img style="height:21px" src="<?= NOVUS_IMG . '/clock.svg' ?>" alt="time">
 							<?php rwmb_the_value( 'datetime', [ 'format' => 'H:i' ] ); ?>
 						</p>
 						<p class="d-iflex">
-							<img style="height:21px" src="<?= NOVUS_IMG . '/calendar.svg' ?>">
+							<img style="height:21px" src="<?= NOVUS_IMG . '/calendar.svg' ?>" alt="date">
 							<?php rwmb_the_value( 'datetime', [ 'format' => 'F j, Y' ] ); ?>
 						</p>
 
 						<p class="d-flex">
-							<img style="width:16px;height:21px" src="<?= NOVUS_IMG . '/pin.svg' ?>">
+							<img style="width:16px;height:21px" src="<?= NOVUS_IMG . '/pin.svg' ?>" alt="location">
 							<?= rwmb_meta( 'location' ) ?>
 						</p>
 					</div>
 
 					<a class="clw fw-5 d-flex align-center" href="<?php the_permalink(); ?>">
 						Sign up your team now
-						<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right.svg' ?>">
+						<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right.svg' ?>" alt="go to">
 					</a>
 				</div>
 			</div>
@@ -71,12 +71,12 @@
 
 					<a class="fw-5 cldark d-flex align-center readmore" href="<?php the_permalink(); ?>">
 						Learn more detail
-						<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right-blue.svg' ?>">
+						<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right-blue.svg' ?>" alt="read more">
 					</a>
 
 					<a class="fw-5 cldark d-flex align-center readmore" href="<?php the_permalink(); ?>">
 						Stay current with new tech insights
-						<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right-blue.svg' ?>">
+						<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right-blue.svg' ?>" alt="read more">
 					</a>
 				</div>
 
@@ -101,7 +101,7 @@
 		<a class="btn-1 fw-5" href="<?= get_permalink( get_page_by_path( 'about-us' ) ) ?>">
 			<span>
 				Talk with our Experts
-				<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right.svg' ?>">
+				<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right.svg' ?>" alt="go to">
 			</span>
 		</a>
 	</div>

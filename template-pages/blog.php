@@ -7,7 +7,7 @@ get_header();
 
 <section class="blog-banner" style="background:url(<?= get_the_post_thumbnail_url( get_queried_object_id(), 'full' ) ?>) center center / cover no-repeat">
 	<div class="container">
-		<h2 class="clw">Explore our <br> trending insights</h2>
+		<h1 class="clw h2">Explore our <br> trending insights</h1>
 		<p class="clw">Bring deeper understanding of business and technology trends</p>
 	</div>
 </section>
@@ -39,7 +39,7 @@ get_header();
 
 				<a class="fw-5 cldark d-flex align-center" href="<?= the_permalink() ?>">
 					Readmore
-					<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right-blue.svg' ?>">
+					<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right-blue.svg' ?>" alt="read more">
 				</a>
 			</div>
 		</article>

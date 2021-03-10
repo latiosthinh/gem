@@ -2,7 +2,7 @@
 get_header();
 ?>
 
-<section class="news-banner" style="background:url(<?= get_the_post_thumbnail_url( 'full_url' ) ?: NOVUS_IMG . '/event-banner.webp' ?>) center center / cover no-repeat">
+<section class="news-banner" style="background:url(<?= get_the_post_thumbnail_url( 'full_url' ) ?>) center center / cover no-repeat">
 	<div class="container">
 		<h1 class="clw"><?= get_the_title() ?></h1>
 
@@ -80,7 +80,7 @@ get_header();
 						<h4><?= $a['name'] ?></h4>
 						<p><?= $a['position'] ?></p>
 					</div>
-					<div class="col-6 guest-detail hidden-mobile">
+					<div class="col-6 guest-detail">
 						<div class="row">
 							<div class="col-2 clsecond fw-5">About</div>
 							<div class="col-10">

@@ -109,6 +109,7 @@ add_action( 'widgets_init', 'novus_widgets_init' );
 function novus_scripts() {
 	wp_enqueue_style( 'novus-style', get_stylesheet_uri(), [], NOVUS_VERSION );
 
+	wp_enqueue_script( 'splide', NOVUS_JS . '/splide.min.js', [], NOVUS_VERSION, true );
 	wp_enqueue_script( 'novus-script', NOVUS_JS . '/script.js', [], NOVUS_VERSION, true );
 }
 add_action( 'wp_enqueue_scripts', 'novus_scripts' );
@@ -168,6 +169,14 @@ function gem_post_type_archive( $query ) {
 	}
 
 	if ( is_post_type_archive( 'event' ) ) {
+		// if ( $_GET[ 'order_by' ] === 'name' ) {
+		// 	$query->set( 'orderby', 'post_title' );
+		// }
+
+		// if ( $_GET[ 'order_by' ] === 'date' ) {
+		// 	$query->set( 'orderby', 'date' );
+		// }
+
 		$query->set( 'posts_per_page', 6 );
 		$query->set( 'offset', 1 );
 	}
@@ -181,3 +190,9 @@ function gem_post_type_archive( $query ) {
 	}
 }
 
+function __language_attributes($lang){
+	$langs = array( 'en-US', 'JA' );
+	$my_language = $langs[ 0 ];
+	return 'lang="'.$my_language.'"';
+}
+add_filter('language_attributes', '__language_attributes');

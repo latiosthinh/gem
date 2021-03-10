@@ -60,7 +60,7 @@ while ( have_posts() ) :
 	</div>
 </section>
 
-<?php endwhile; ?>
+<?php endwhile;wp_reset_postdata(); ?>
 
 <section class="case-study-related case-studies">
 	<div class="container">
@@ -70,13 +70,14 @@ while ( have_posts() ) :
 			$related = new WP_Query( [
 				'post_type'      => 'case-study',
 				'posts_per_page' => 4,
-				'tax_query'      => [
-					[
-						'taxonomy' => 'case-study-category',
-						'field'    => 'slug',
-						'term'     => [ get_the_terms( get_the_ID(), 'case-study-category' ) ]
-					]
-				]
+				'post__not_in'   => [ get_the_ID() ],
+				// 'tax_query'      => [
+				// 	[
+				// 		'taxonomy' => 'case-study-category',
+				// 		'field'    => 'slug',
+				// 		'term'     => [ get_the_terms( get_the_ID(), 'case-study-category' ) ]
+				// 	]
+				// ]
 			] );
 
 			while ( have_posts() ) : the_post();

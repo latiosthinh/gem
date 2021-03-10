@@ -1,6 +1,8 @@
 <?php
 get_header();
 
+while ( have_posts() ) : the_post();
+
 get_template_part( 'template-parts/service/banner' );
 ?>
 
@@ -55,7 +57,7 @@ get_template_part( 'template-parts/service/banner' );
 			<a class="btn-1 fw-5" href="<?= site_url( '/blog' ) ?>">
 				<span>
 					Explore more
-					<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right.svg' ?>">
+					<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right.svg' ?>" alt="go to">
 				</span>
 			</a>
 		</div>
@@ -64,160 +66,41 @@ get_template_part( 'template-parts/service/banner' );
 
 <section class="service-content">
 	<div class="container">
-		<h2 class="txt-center">See how we help clients</h2>
-		<p class="txt-center">
-		We work shoulder-to-shoulder with our clients—remotely as needed in this time <br>
-		of crisis—to achieve and sustain transformational impact over time
-		</p>
+		<h2 class="txt-center"><?= rwmb_meta( 'content_title', null, get_queried_object_id() ); ?></h2>
+		<?= rwmb_meta( 'content_short', null, get_queried_object_id() ); ?>
 
 		<div class="row tab-navs">
+			<?php
+			$tabs = rwmb_meta( 'tabs', null, get_queried_object_id() );
+			$tab_id = 0;
+			foreach ( $tabs as $t ) :
+				$icon    = wp_get_attachment_url( $t[ 'icon' ] );
+				$name    = $t[ 'name' ];
+			?>
 			<div class="col-3">
-				<a class="tab-link h4 active" class="tab-link" data-href="mobile">
-					<img src="<?= NOVUS_IMG . '/mobile.svg' ?>">
-					Mobile Application <br>
-					Development
+				<a class="tab-link h4 active" class="tab-link" data-href="tab-<?= ++ $tab_id ?>">
+					<img src="<?= $icon ?>" alt="mobile">
+					<span><?= $name ?></span>
 				</a>
 			</div>
-			<div class="col-3">
-				<a class="tab-link h4" data-href="enterprise">
-					<img src="<?= NOVUS_IMG . '/enterprise.svg' ?>">
-					Enterprise Application <br>
-					Development
-				</a>
-			</div>
-			<div class="col-3">
-				<a class="tab-link h4" data-href="maintain">
-					<img src="<?= NOVUS_IMG . '/maintain.svg' ?>">
-					Maintenance and <br>
-					Support
-				</a>
-			</div>
-			<div class="col-3">
-				<a class="tab-link h4" data-href="maintain-2">
-					<img src="<?= NOVUS_IMG . '/maintain-2.svg' ?>">
-					Maintenance and <br>
-					Support
-				</a>
-			</div>
+			<?php endforeach; ?>
 		</div>
 
 		<div class="row">
 			<div class="col-12">
-				<div id="mobile" class="tab-content active">
+				<?php
+				$tab_content_id = 0;
+				foreach ( $tabs as $t ) :
+					$content = $t[ 'tab_content' ];
+				?>
+				<div id="tab-<?= ++ $tab_content_id ?>" class="tab-content <?= 1===$tab_content_id ? 'active':'' ?>">
 					<div class="row">
-						<div class="col-6">
-							<h4>UI/UX enhancement</h4>
-							<ul>
-								<li>
-								User-centered designs and effective graphical interfaces for engaging visuals with excellent user experience
-								</li>
-								<li>Lean and effective framework to meet your unique demand</li>
-								<li>Quickly-delivered project thanks to GEM’s rich knowledge and ready libraries</li>
-							</ul>
-						</div>
-
-						<div class="col-6">
-							<h4>Widely-covered Mobile <br>Tech stack</h4>
-							<p>GEM helps you choose the right framework based on your own needs</p>
-							<ul>
-								<li>iOS app native</li>
-								<li>Android app native</li>
-								<li>Windows app native</li>
-								<li>Hybrid framework (Ionic)</li>
-								<li>Cross-platform React Native app</li>
-							</ul>
-						</div>
-
-						<div class="col-6">
-							<h4>Software Development Life Cycle <br> best practices</h4>
-							<ul>
-								<li>Eliminate unnecessary costs</li>
-								<li>Avoid redundant work</li>
-								<li>Reduce later fixes to a minimum</li>
-							</ul>
-
-							<p>Get your mobile application developed in the shortest possible time, with the highest possible quality, and at reasonable costs.</p>
-						</div>
-
-						<div class="col-6 img">
-							<img src="<?= NOVUS_IMG . '/map.png' ?>">
-							<img src="<?= NOVUS_IMG . '/map-2.png' ?>">
-						</div>
+						<?php foreach ( $content as $c ) : ?>
+							<div class="<?= count( $t ) > 1 ? 'col-6' : 'col-12' ?>"><?= $c ?></div>
+						<?php endforeach; ?>
 					</div>
 				</div>
-				<div id="enterprise" class="tab-content">
-					<div class="row">
-						<div class="col-6">
-							<h4>Multiple-platform solutions development</h4>
-							<ul>
-								<li>
-								User-centered designs and effective graphical interfaces for engaging visuals with excellent user experience
-								</li>
-								<li>Lean and effective framework to meet your unique demand</li>
-								<li>Quickly-delivered project thanks to GEM’s rich knowledge and ready libraries</li>
-							</ul>
-						</div>
-
-						<div class="col-6">
-							<h4>Use of Software Development Life Cycle best practices</h4>
-							<p>Get your mobile application developed in the shortest possible time, with the highest possible quality, and at reasonable costs</p>
-							<ul>
-								<li>Windows app native</li>
-								<li>Hybrid framework (Ionic)</li>
-								<li>Cross-platform React Native app</li>
-							</ul>
-						</div>
-
-						<div class="col-6">
-							<h4>Design for scalability and performance</h4>
-							<p>GEM helps you choose the right framework based on your own needs</p>
-							<ul>
-								<li>iOS app native</li>
-								<li>Android app native</li>
-								<li>Windows app native</li>
-								<li>Hybrid framework (Ionic)</li>
-								<li>Cross-platform React Native app</li>
-							</ul>
-						</div>
-
-						<div class="col-6">
-							<h4>Experience in various industries</h4>
-							<div class="img">
-								<img src="<?= NOVUS_IMG . '/map.png' ?>">
-								<img src="<?= NOVUS_IMG . '/map-2.png' ?>">
-							</div>
-						</div>
-					</div>
-				</div>
-				<div id="maintain" class="tab-content">
-					<div class="row">
-						<div class="col-6">
-							<ul>
-								<li>Fix inefficiencies in your business processes</li>
-								<li>Increase transparency over your operations</li>
-								<li>Better manage your company resources</li>
-								<li>Better motivate and engage with your employees</li>
-								<li>Increase your business revenue</li>
-							</ul>
-						</div>
-
-						<div class="col-6">
-							<ul>
-								<li>A well-developed website aligns with your brand language and engages your audience. Our approach is to learn about your brand and listen to your ideas first. Based on this received information, we will create a compelling website that will follow your specific requirements. Whether you are a small business that wants a simple but professional looking website, or an enterprise in need of a complex website, we can help.</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div id="maintain-2" class="tab-content">
-					<div class="row">
-						<div class="col-12">
-							<ul>
-								<li>Enterprise applications provide your business with end-to-end mobility and high-level accessibility. We will help you create the perfect mix of people, processes, and technology to enhance your business development.</li>
-								<li>By applying the best practices of the custom software development, we produce an enterprise application that is specifically tailored to maximize your customer reach and enable the effortless flow of your business operations.</li>
-							</ul>
-						</div>
-					</div>
-				</div>
+				<?php endforeach; ?>
 			</div>
 		</div>
 	</div>
@@ -229,29 +112,32 @@ get_template_part( 'template-parts/service/banner' );
 		Amet sagittis a, orci ridiculus arcu habitant nulla eu.
 		</p>
 
-		<div class="row">
-			<div class="col-3 txt-center">
-				<img src="<?= NOVUS_IMG . '/settings.svg' ?>">
-				<h4>PMI-based <br> PROCESSES & TOOLS</h4>
-			</div>
-
-			<div class="col-3 txt-center">
-				<img src="<?= NOVUS_IMG . '/human.svg' ?>">
-				<h4>WELL-TRAINED <br> TEAM</h4>
-			</div>
-
-			<div class="col-3 txt-center">
-				<img src="<?= NOVUS_IMG . '/checklist.svg' ?>">
-				<h4>REGULAR AUDIT & <br> FEEDBACK</h4>
-			</div>
-
-			<div class="col-3 txt-center">
-				<img src="<?= NOVUS_IMG . '/cloud.svg' ?>">
-				<h4>PMI-based <br> PROCESSES & TOOLS</h4>
+		<div class="splide">
+			<div class="splide__track">
+				<div class="splide__list">
+					<div class="splide__slide txt-center">
+						<img src="<?= NOVUS_IMG . '/settings.svg' ?>" alt="settings">
+						<h4>PMI-based <br> PROCESSES & TOOLS</h4>
+					</div>
+					<div class="splide__slide txt-center">
+						<img src="<?= NOVUS_IMG . '/human.svg' ?>" alt="team">
+						<h4>WELL-TRAINED <br> TEAM</h4>
+					</div>
+					<div class="splide__slide txt-center">
+						<img src="<?= NOVUS_IMG . '/checklist.svg' ?>" alt="feedback">
+						<h4>REGULAR AUDIT & <br> FEEDBACK</h4>
+					</div>
+					<div class="splide__slide txt-center">
+						<img src="<?= NOVUS_IMG . '/cloud.svg' ?>" alt="cloud">
+						<h4>PMI-based <br> PROCESSES & TOOLS</h4>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 </section>
+
+<?php endwhile; ?>
 
 <section class="home-contact about-contact">
 	<div class="container">

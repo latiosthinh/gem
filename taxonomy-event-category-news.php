@@ -37,7 +37,7 @@ while ( have_posts() ) : the_post();
 
 						<a class="fw-5 cldark d-flex align-center readmore" href="<?php the_permalink(); ?>">
 							Read more
-							<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right-blue.svg' ?>">
+							<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right-blue.svg' ?>" alt="read more">
 						</a>
 					</div>
 				</article>

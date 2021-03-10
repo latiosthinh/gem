@@ -129,17 +129,39 @@
 
 	.entry-info + p {
 		margin: 40px 0 64px;
+
+		@media all and (max-width:991px) {
+			margin-bottom: 30px;
+		}
 	}
 
 	.case-study-content {
+		h4 {
+			@media all and (max-width:991px) {
+				margin-bottom: 15px;
+			}
+		}
+
+		.col-9 {
+			@media all and (max-width:991px) {
+				margin-bottom: 40px;
+			}
+		}
+
 		aside {
 			padding: 0;
 
 			div {
-				background: $color-grey;
+				@media all and (min-width:1200px) {
+					background: $color-grey;
+				}
 				
 				@media all and (min-width:1500px) {
 					padding: 90px 40px;
+				}
+
+				@media all and (max-width:991px) {
+					margin-top: 40px;
 				}
 			}
 		}
@@ -154,7 +176,7 @@
 		margin-bottom: 24px;
 	}
 
-	article {
+	article.style-1 {
 		.entry-title {
 			background: #fff;
 		}

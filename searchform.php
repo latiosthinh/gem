@@ -18,7 +18,7 @@
 			</label>
 			<span class="search__info">Hit enter to search or ESC to close</span>
 			<button type="submit" class="search-submit">
-				<img src="<?= NOVUS_IMG . '/search.svg' ?>">
+				<img src="<?= NOVUS_IMG . '/search.svg' ?>" alt="search">
 			</button>
 		</form>
 	</div>

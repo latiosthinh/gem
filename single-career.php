@@ -41,7 +41,7 @@ get_header();
 			<a class="btn-1 fw-5" href="<?= get_permalink( get_page_by_path( 'contact-us' ) ) ?>">
 				<span>
 					Apply now
-					<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right.svg' ?>">
+					<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right.svg' ?>" alt="go to">
 				</span>
 			</a>
 		</div>

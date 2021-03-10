@@ -41,9 +41,18 @@
 	.news--big {
 		display: flex;
 
+		@media all and (max-width:991px) {
+			flex-direction: column;
+		}
+
 		.entry-thumbnail {
 			width: 58%;
 			flex: 0 0 58%;
+
+			@media all and (max-width:991px) {
+				width: 100%;
+				flex: 0 0 100%;
+			}
 		}
 
 		.entry-content {
@@ -52,6 +61,10 @@
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
+
+			@media all and (max-width:991px) {
+				padding: 20px 15px;
+			}
 		}
 
 		span {
@@ -73,12 +86,16 @@
 		}
 
 		h3 {
-			@include set-line( 2, 20 );
+			@media all and (min-width:1200px) {
+				@include set-line( 2, 20 );
+			}
 			margin: 4px 0;
 		}
 
 		p {
-			@include set-line( 2, 16 );
+			@media all and (min-width:1200px) {
+				@include set-line( 2, 16 );
+			}
 		}
 	}
 }
@@ -490,6 +507,14 @@
 
 		&.active {
 			display: block;
+		}
+
+		@media all and (max-width:991px) {
+			display: block;
+
+			.col-10 {
+				margin: 15px 0 7px;
+			}
 		}
 	}
 

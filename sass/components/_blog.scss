@@ -55,7 +55,7 @@
 	}
 }
 
-.single-service {
+.page-template-service {
 	.about-contact {
 		background: #fff;
 	}
@@ -65,9 +65,58 @@
 		padding-bottom: 90px;
 		position: relative;
 
-		.col-3 {
+		@media all and (max-width:991px) {
+			padding-bottom: 45px;
+		}
+
+		.splide__slide {
+			border: 1px solid transparent;
+			padding-top: 50px;
+			padding-bottom: 50px;
+			cursor: pointer;
+			position: relative;
+
+			&:before {
+				content: '';
+				display: none;
+				position: absolute;
+				top: -1px;
+				left: -1px;
+				width: calc( 100% + 2px );
+				height: calc( 100% + 2px );
+				background: linear-gradient(104.3deg, #0CE2FF 10.72%, #0094FF 76.1%);
+				z-index: 0;
+			}
+
+			&:after {
+				content: '';
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: #F2F2F2;
+				z-index: 1;
+			}
+
+			h4, img {
+				position: inherit;
+				z-index: 2;
+			}
+
+			&:hover {
+				color: $color-secondary;
+
+				&:before {
+					display: block;
+				}
+			}
+		}
+
+		h4 {
 			@media all and (max-width:991px) {
-				margin-bottom: 10px;
+				font-size: 13px;
 			}
 		}
 
@@ -79,6 +128,10 @@
 			width: auto;
 			height: 70px;
 			margin: 0 auto 16px;
+
+			@media all and (max-width:991px) {
+				height: 35px;
+			}
 		}
 
 		&:before {
@@ -105,48 +158,95 @@
 }
 
 .tab-navs {
-	a {
-		transition: .3s;
-		display: block;
-		text-align: center;
-		background: #fff;
-		position: relative;
-		padding: 60px 30px;
-		cursor: pointer;
-		border: 1px solid #fff;
+	@media all and (max-width:991px) {
+		margin: 0;
+	}
 
-		@media all and (max-width:1400px) {
-			padding: 40px 20px;
-		}
-
-		&:hover, &.active {
-			box-shadow: 0 0 4px 4px rgba( 0,0,0,.1 );
-			border: 1px solid $color-secondary;
-
-			&:after {
-				background: #fff;
-				border-right: 1px solid $color-secondary;
-				border-bottom: 1px solid $color-secondary;
-			}
-		}
-
-		&:after {
-			content: '';
-			display: block;
-			width: 20px;
-			height: 20px;
-			position: absolute;
-			bottom: -12px;
-			left: 50%;
-			transform: translateX(-50%) rotate(45deg);
-			border-right: 1px solid transparent;
-			border-bottom: 1px solid transparent;
+	.col-3 {
+		@media all and (max-width:991px) {
+			flex: 0 0 25%;
+			max-width: 25%;
+			padding: 0;
 		}
 	}
 
 	img {
 		margin: 0 auto 24px;
 		width: 70px;
+
+		@media all and (max-width:991px) {
+			margin: 10px auto;
+			width: 35px;
+		}
+	}
+}
+
+.tab-link {
+	transition: .3s;
+	display: block;
+	text-align: center;
+	background: #fff;
+	position: relative;
+	padding: 60px 30px;
+	cursor: pointer;
+	border: 1px solid transparent;
+
+	@media all and (max-width:1400px) {
+		padding: 40px 20px;
+	}
+
+	@media all and (max-width:991px) {
+		padding: 5px;
+	}
+
+	&:hover, &.active {
+		box-shadow: 0 0 4px 4px rgba( 0,0,0,.1 );
+		border: 1px solid $color-secondary;
+
+		&:after {
+			background: #fff;
+			border-right: 1px solid $color-secondary;
+			border-bottom: 1px solid $color-secondary;
+		}
+
+		span {
+			z-index: 3;
+		}
+	}
+
+	&:after {
+		content: '';
+		display: block;
+		width: 20px;
+		height: 20px;
+		position: absolute;
+		bottom: -12px;
+		left: 50%;
+		transform: translateX(-50%) rotate(45deg);
+		border-right: 1px solid transparent;
+		border-bottom: 1px solid transparent;
+
+		@media all and (max-width:991px) {
+			width: 15px;
+			height: 15px;
+			bottom: -9px;
+		}
+	}
+
+	span {
+		@media all and (max-width:991px) {
+			font-size: 11px;
+			position: absolute;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			z-index: -1;
+			background: #fff;
+		}
 	}
 }
 
@@ -165,17 +265,25 @@
 	}
 
 	.col-6 {
-		padding-left: 30px;
-		padding-right: 30px;
+		@media all and (min-width:1200px) {
+			padding-left: 30px;
+			padding-right: 30px;
+		}
 	}
 
 	h4 {
-		height: 60px;
-		margin-bottom: 16px;
+		@media all and (min-width:1200px) {
+			height: 60px;
+			margin-bottom: 16px;
+		}
 	}
 
 	ul {
 		margin: 14px 0;
+
+		@media all and (max-width:991px) {
+			padding-left: 15px;
+		}
 
 		li {
 			margin: 4px 0;
@@ -205,7 +313,11 @@
 .blog-banner {
 	padding: 14% 0;
 
-	h2 {
+	@media all and (max-width:991px) {
+		padding: 75% 0;
+	}
+
+	.h2 {
 		margin-bottom: 8px;
 	}
 }

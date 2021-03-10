@@ -14,7 +14,7 @@ $post_slug = $post->post_name;
 		<a class="btn-1 fw-5" href="<?= get_permalink( get_page_by_path( 'contact-us' ) ) ?>">
 			<span>
 				Talk to our experts
-				<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right.svg' ?>">
+				<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right.svg' ?>" alt="go to">
 			</span>
 		</a>
 	</div>
@@ -152,7 +152,7 @@ $post_slug = $post->post_name;
 			<a class="btn-1 fw-5" href="<?= get_post_type_archive_link( 'case-study' ); ?>">
 				<span>
 					Explore more
-					<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right.svg' ?>">
+					<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right.svg' ?>" alt="go to">
 				</span>
 			</a>
 		</div>
@@ -169,35 +169,35 @@ $post_slug = $post->post_name;
 				<a class="btn-1 fw-5" href="<?= rwmb_meta( 'url', null, $id ) ?>">
 					<span>
 						Download Services Offering
-						<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right.svg' ?>">
+						<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right.svg' ?>" alt="go to">
 					</span>
 				</a>
 			</div>
 
-			<div class="col-3">
-				<div class="offer-content">
-					<h3><?= rwmb_meta( 'offer_1_title', null, $id ); ?></h3>
-					<p><?= rwmb_meta( 'offer_1_content', null, $id ) ?></p>
+			<div class="col-9">
+				<div class="splide">
+					<div class="splide__track">
+						<div class="splide__list">
+							<div class="splide__slide offer-content">
+								<h3><?= rwmb_meta( 'offer_1_title', null, $id ); ?></h3>
+								<p><?= rwmb_meta( 'offer_1_content', null, $id ) ?></p>
 
-					<img class="hidden-mobile" src="<?= rwmb_meta( 'offer_1_image', null, $id )[ 'full_url' ]; ?>">
-				</div>
-			</div>
+								<img src="<?= rwmb_meta( 'offer_1_image', null, $id )[ 'full_url' ]; ?>" alt="<?= rwmb_meta( 'offer_1_title', null, $id ); ?>">
+							</div>
+							<div class="splide__slide offer-content">
+								<h3><?= rwmb_meta( 'offer_2_title', null, $id ) ?></h3>
+								<p><?= rwmb_meta( 'offer_2_content', null, $id ) ?></p>
 
-			<div class="col-3">
-				<div class="offer-content">
-					<h3><?= rwmb_meta( 'offer_2_title', null, $id ) ?></h3>
-					<p><?= rwmb_meta( 'offer_2_content', null, $id ) ?></p>
+								<img src="<?= rwmb_meta( 'offer_1_image', null, $id )[ 'full_url' ]; ?>" alt="<?= rwmb_meta( 'offer_2_title', null, $id ); ?>">
+							</div>
+							<div class="splide__slide offer-content">
+								<h3><?= rwmb_meta( 'offer_3_title', null, $id ) ?></h3>
+								<p><?= rwmb_meta( 'offer_3_content', null, $id ) ?></p>
 
-					<img class="hidden-mobile" src="<?= rwmb_meta( 'offer_1_image', null, $id )[ 'full_url' ]; ?>">
-				</div>
-			</div>
-
-			<div class="col-3">
-				<div class="offer-content">
-					<h3><?= rwmb_meta( 'offer_3_title', null, $id ) ?></h3>
-					<p><?= rwmb_meta( 'offer_3_content', null, $id ) ?></p>
-
-					<img class="hidden-mobile" src="<?= rwmb_meta( 'offer_1_image', null, $id )[ 'full_url' ]; ?>">
+								<img src="<?= rwmb_meta( 'offer_1_image', null, $id )[ 'full_url' ]; ?>" alt="<?= rwmb_meta( 'offer_3_title', null, $id ); ?>">
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -211,7 +211,7 @@ $post_slug = $post->post_name;
 		<div class="row">
 			<div class="col-4">
 				<div class="why-content">
-					<img src="<?= rwmb_meta( 'why_us_1_image', null, $id )[ 'full_url' ]; ?>">
+					<img src="<?= rwmb_meta( 'why_us_1_image', null, $id )[ 'full_url' ]; ?>" alt="why us">
 
 					<h4><?= rwmb_meta( 'why_us_1_title', null, $id ) ?></h4>
 					<p><?= rwmb_meta( 'why_us_1_content', null, $id ) ?></p>
@@ -220,7 +220,7 @@ $post_slug = $post->post_name;
 
 			<div class="col-4">
 				<div class="why-content">
-					<img src="<?= rwmb_meta( 'why_us_2_image', null, $id )[ 'full_url' ]; ?>">
+					<img src="<?= rwmb_meta( 'why_us_2_image', null, $id )[ 'full_url' ]; ?>" alt="why us">
 
 					<h4><?= rwmb_meta( 'why_us_2_title', null, $id ) ?></h4>
 					<p><?= rwmb_meta( 'why_us_2_content', null, $id ) ?></p>
@@ -229,7 +229,7 @@ $post_slug = $post->post_name;
 
 			<div class="col-4">
 				<div class="why-content">
-					<img src="<?= rwmb_meta( 'why_us_3_image', null, $id )[ 'full_url' ]; ?>">
+					<img src="<?= rwmb_meta( 'why_us_3_image', null, $id )[ 'full_url' ]; ?>" alt="why us">
 
 					<h4><?= rwmb_meta( 'why_us_3_title', null, $id ) ?></h4>
 					<p><?= rwmb_meta( 'why_us_3_content', null, $id ) ?></p>

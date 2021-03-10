@@ -16,13 +16,13 @@ $events = get_terms( [
 <nav class="main-menu">
 	<div class="menu-parent">
 		<ul class="container">
-			<li><a class="menu-parent__item" data-href="menu-services">Services</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>"></li>
-			<li><a class="menu-parent__item" data-href="menu-case-studies">Industries</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>"></li>
-			<li><a class="menu-parent__item" data-href="menu-event">News</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>"></li>
-			<li><a class="menu-parent__item" data-href="menu-resource-center">Resource Center</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>"></li>
-			<li><a href="<?= get_permalink( get_page_by_path( 'careers' ) ) ?>">Career</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>"></li>
-			<li><a href="<?= get_permalink( get_page_by_path( 'about-us' ) ) ?>">About Us</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>"></li>
-			<li><a href="<?= get_permalink( get_page_by_path( 'contact-us' ) ) ?>">Contact Us</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>"></li>
+			<li><a class="menu-parent__item" href="<?= get_permalink( get_page_by_path( 'services' ) ) ?>" data-href="menu-services">Services</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" alt="go to"></li>
+			<li><a class="menu-parent__item" data-href="menu-case-studies">Industries</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" alt="go to"></li>
+			<li><a class="menu-parent__item" data-href="menu-event">News</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" alt="go to"></li>
+			<li><a class="menu-parent__item" data-href="menu-resource-center">Resource Center</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" alt="go to"></li>
+			<li><a href="<?= get_permalink( get_page_by_path( 'careers' ) ) ?>">Career</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" alt="go to"></li>
+			<li><a href="<?= get_permalink( get_page_by_path( 'about-us' ) ) ?>">About Us</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" alt="go to"></li>
+			<li><a href="<?= get_permalink( get_page_by_path( 'contact-us' ) ) ?>">Contact Us</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" alt="go to"></li>
 		</ul>
 	</div>
 
@@ -53,7 +53,7 @@ $events = get_terms( [
 			?>
 			<li class="<?= 'special' !== $s->slug ?: 'special' ?>">
 				<a class="<?= 'special' !== $s->slug ?: 'fw-5' ?>" href="<?php the_permalink() ?>"><?php the_title(); ?></a>
-				<img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" />
+				<img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" alt="go to">
 			</li>
 			<?php endwhile; ?>
 		</ul>
@@ -70,7 +70,7 @@ $events = get_terms( [
 			<?php while ( $cases->have_posts() ) : $cases->the_post(); ?>
 				<li>
 					<a class="fw-5" href="<?= the_permalink() ?>"><?= get_the_title(); ?></a>
-					<img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" />
+					<img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" alt="go to" />
 				</li>
 			<?php endwhile; ?>
 		</ul>
@@ -101,7 +101,7 @@ $events = get_terms( [
 		<ul class="d-flex">
 			<li>
 				<a class="fw-5" href="<?= get_post_type_archive_link( 'event' ) ?>">Event calendar</a>
-				<img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" />
+				<img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" alt="go to" />
 			</li>
 			<?php
 			foreach ( $events as $s ) :
@@ -109,7 +109,7 @@ $events = get_terms( [
 			?>
 				<li>
 					<a class="fw-5" href="<?= get_term_link( $s->term_id ) ?>"><?= $s->name; ?></a>
-					<img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" />
+					<img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" alt="go to" />
 				</li>
 			<?php
 				endif;
@@ -144,12 +144,12 @@ $events = get_terms( [
 		<ul class="d-flex">
 			<li>
 				<a class="fw-5" href="<?= get_permalink( get_page_by_path( 'posts' ) ) ?>">Blog</a>
-				<img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" />
+				<img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" alt="go to" />
 			</li>
 
 			<li>
 				<a class="fw-5" href="<?= get_post_type_archive_link( 'case-study' ) ?>">Case Studies</a>
-				<img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" />
+				<img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" alt="go to" />
 			</li>
 		</ul>
 		

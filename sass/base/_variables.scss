@@ -242,6 +242,12 @@ $dark-sea: #162a73;
 	}
 }
 
+.hidden-pc {
+	@media all and (min-width:992px) {
+		display: none !important;
+	}
+}
+
 @keyframes ltr {
 	0%, 100% { transform: translate(-15%, -50%); }
 	50% { transform: translate(15%, -50%); }

@@ -17,7 +17,7 @@ $tempID = get_the_ID();
 		<a class="btn-1 fw-5" href="<?= get_permalink( get_page_by_path( 'about-us' ) ) ?>">
 			<span>
 				See opportunities
-				<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right.svg' ?>">
+				<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right.svg' ?>" alt="go to">
 			</span>
 		</a>
 	</div>
@@ -73,11 +73,11 @@ $tempID = get_the_ID();
 					
 				<a class="fw-5 cldark d-flex align-center" href="<?= $p[ 'url_1' ] ?>">
 					Meet <?= $p[ 'name' ] ?>
-					<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right-blue.svg' ?>">
+					<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right-blue.svg' ?>" alt="meet">
 				</a>
 				<a class="fw-5 cldark d-flex align-center" href="<?= $p[ 'url_2' ] ?>">
 					Find a job like <?= $p[ 'name' ] ?>'s
-					<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right-blue.svg' ?>">
+					<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right-blue.svg' ?>" alt="meet">
 				</a>
 			</div>
 		</div>

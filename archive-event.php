@@ -17,22 +17,22 @@ $event = new WP_Query( [
 
 while ( $event->have_posts() ) : $event->the_post();
 ?>
-<section class="news-banner" style="background:url(<?= get_the_post_thumbnail_url( 'full_url' ) ?: NOVUS_IMG . '/event-banner.webp' ?>) center center / cover no-repeat">
+<section class="news-banner" style="background:url(<?= get_the_post_thumbnail_url( 'full_url' ) ?>) center center / cover no-repeat">
 	<div class="container">
 		<h1 class="clw"><?= get_the_title() ?></h1>
 
 		<div class="event-info d-flex clw">
 			<p class="d-iflex">
-				<img style="height:21px" src="<?= NOVUS_IMG . '/clock-w.svg' ?>">
+				<img style="height:21px" src="<?= NOVUS_IMG . '/clock-w.svg' ?>" alt="time">
 				<?php rwmb_the_value( 'datetime', [ 'format' => 'H:i' ] ); ?>
 			</p>
 			<p class="d-iflex">
-				<img style="height:21px" src="<?= NOVUS_IMG . '/calendar-w.svg' ?>">
+				<img style="height:21px" src="<?= NOVUS_IMG . '/calendar-w.svg' ?>" alt="date">
 				<?php rwmb_the_value( 'datetime', [ 'format' => 'F j, Y' ] ); ?>
 			</p>
 
 			<p class="d-flex">
-				<img style="width:19px;height:23px" src="<?= NOVUS_IMG . '/pin-w.svg' ?>">
+				<img style="width:19px;height:23px" src="<?= NOVUS_IMG . '/pin-w.svg' ?>" alt="location">
 				<?= rwmb_meta( 'location' ) ?>
 			</p>
 		</div>
@@ -40,7 +40,7 @@ while ( $event->have_posts() ) : $event->the_post();
 		<a class="btn-1 fw-5" href="<?= the_permalink() ?>">
 			<span>
 				Sign up now
-				<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right.svg' ?>">
+				<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right.svg' ?>" alt="go to">
 			</span>
 		</a>
 	</div>
@@ -49,6 +49,18 @@ while ( $event->have_posts() ) : $event->the_post();
 
 <section class="event-items">
 	<div class="container">
+		<form class="gem-select" method="GET">
+			<span>Filter by</span>
+
+			<div class="custom-select">
+				<select name="orderby" id="orderby">
+					<option value="0">Select</option>
+					<option value="date">Date</option>
+					<option value="title">Name</option>
+				</select>
+			</div>
+		</form>
+
 		<div class="row">
 <?php while ( have_posts() ) : the_post();?>
 	<div class="col-4">

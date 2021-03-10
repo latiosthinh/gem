@@ -356,6 +356,7 @@
 	}
 
 	.gem-item {
+		display: flex;
 		justify-content: space-between;
 		flex-wrap: wrap;
 	}
@@ -365,6 +366,7 @@
 
 		@media all and (max-width:991px) {
 			width: 100%;
+			margin-bottom: 10px;
 		}
 	}
 
@@ -375,6 +377,10 @@
 			margin-top: 8px;
 			margin-bottom: 30px;
 			font-weight: 500;
+
+			@media all and (max-width:991px) {
+				margin-bottom: 15px;
+			}
 		}
 
 		a {
@@ -386,19 +392,39 @@
 		}
 	}
 
-	.prev {
-		left: -40px;
-	}
-
-	.next {
-		right: -40px;
-	}
-
-	.gem-dots {
+	.splide__arrow {
 		position: absolute;
-		bottom: -32px;
+
+		&--prev {
+			left: -40px;
+		}
+
+		&--next {
+			right: -40px;
+			transform: rotate(180deg);
+		}
+	}
+
+	.splide__pagination {
+		position: absolute;
+		bottom: -130px;
 		left: 0;
 		width: 100%;
+
+		li {
+			border: 0;
+		}
+
+		button {
+			width: 10px;
+			height: 10px;
+			background: $color-dot;
+			outline: none;
+
+			&.is-active {
+				background: $color-secondary;
+			}
+		}
 	}
 }
 
