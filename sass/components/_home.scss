@@ -230,6 +230,7 @@
 
 		&:first-child {
 			grid-area: big;
+			overflow: hidden;
 			position: relative;
 
 			&:before {
@@ -267,7 +268,7 @@
 	}
 
 	.thumbnail-big {
-		height: 947px;
+		height: 100%;
 
 		@media all and (max-width:991px) {
 			height: 305px;
@@ -312,6 +313,10 @@
 
 	@media all and (max-width:991px) {
 		grid-template-columns: 1fr;
+	}
+
+	img {
+		height: 290px;
 	}
 
 	.entry-content {

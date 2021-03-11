@@ -32,6 +32,10 @@
 		color: #000;
 		transition: .3s;
 	}
+
+	p {
+		@include set-line( 4, 20 );
+	}
 }
 
 .service-content {
@@ -52,10 +56,11 @@
 		margin-bottom: 4px;
 		color: #888;
 		margin-right: 15px;
+		font-size: 14px;
 	}
 }
 
-.page-template-service {
+.page-template-service, .single-service {
 	.about-contact {
 		background: #fff;
 	}

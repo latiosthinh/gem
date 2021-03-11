@@ -27,13 +27,9 @@
 
 	<header id="masthead" class="site-header">
 		<button id="nav-control" class="b0" name="nav-control">
-			<svg width="35" height="24" viewBox="0 0 35 24" fill="white">
-				<rect class="rect rect-1" width="35" height="3.15" rx="2"></rect>
-				<rect class="rect rect-2" y="10" width="27" height="3.15" rx="2"></rect>
-				<rect class="rect rect-3" y="20" width="19" height="3.15" rx="2"></rect>
-				<rect class="rect rect-4" width="35" y="10" height="3.15" rx="2"></rect>
-				<rect class="rect rect-5" width="35" y="10" height="3.15" rx="2"></rect>
-			</svg>
+			<span></span>
+			<span></span>
+			<span></span>
 		</button>
 
 		<?php
@@ -60,6 +56,8 @@
 		</nav>
 
 		<span id="progress-bar"></span>
+
+		<div id="header-bg" class="hidden-mobile"></div>
 	</header>
 
 	<?php get_search_form() ?>

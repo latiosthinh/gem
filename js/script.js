@@ -133,11 +133,13 @@ document.addEventListener( 'DOMContentLoaded', function() {
 	const back         = document.querySelectorAll( '.back' );
 	const menuItems    = document.querySelectorAll( '.menu-parent__item' );
 	const menuChildren = document.querySelectorAll( '.menu-children' );
+	const closeNav = document.getElementById( 'header-bg' );
 
 	navControl.addEventListener( 'click', () => {
 		navControl.classList.contains( 'active' ) ? navControl.classList.remove( 'active' ) : navControl.classList.add( 'active' )
 		header.classList.contains( 'sticky' ) ? header.classList.remove( 'sticky' ) : header.classList.add( 'sticky' )
 		mainMenu.classList.contains( 'active' ) ? mainMenu.classList.remove( 'active' ) : mainMenu.classList.add( 'active' )
+		closeNav.classList.contains( 'active' ) ? closeNav.classList.remove( 'active' ) : closeNav.classList.add( 'active' )
 
 		menuItems.forEach( e => {
 			e.parentElement.classList.remove( 'active' );
@@ -147,6 +149,13 @@ document.addEventListener( 'DOMContentLoaded', function() {
 			e.classList.remove( 'active' );
 		} )
 	} )
+
+	closeNav.addEventListener( 'click', function() {
+		navControl.classList.remove( 'active' )
+		header.classList.remove( 'sticky' )
+		mainMenu.classList.remove( 'active' )
+		closeNav.classList.remove( 'active' )
+	});
 
 	menuItems.forEach( e => {
 		e.addEventListener( 'mouseenter', () => {
@@ -159,8 +168,12 @@ document.addEventListener( 'DOMContentLoaded', function() {
 			} )
 
 			e.parentElement.classList.add( 'active' )
-
 			document.getElementById( e.dataset.href ).classList.add( 'active' );
+		} )
+
+		e.addEventListener( 'mouseleave', () => {
+			e.parentElement.classList.remove( 'active' )
+			document.getElementById( e.dataset.href ).classList.remove( 'active' );
 		} )
 
 		e.addEventListener( 'touchstart', ( event ) => {

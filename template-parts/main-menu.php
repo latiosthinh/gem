@@ -16,7 +16,7 @@ $events = get_terms( [
 <nav class="main-menu">
 	<div class="menu-parent">
 		<ul class="container">
-			<li><a class="menu-parent__item" href="<?= get_permalink( get_page_by_path( 'services' ) ) ?>" data-href="menu-services">Services</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" alt="go to"></li>
+			<li><a class="menu-parent__item" data-href="menu-services">Services</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" alt="go to"></li>
 			<li><a class="menu-parent__item" data-href="menu-case-studies">Industries</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" alt="go to"></li>
 			<li><a class="menu-parent__item" data-href="menu-event">News</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" alt="go to"></li>
 			<li><a class="menu-parent__item" data-href="menu-resource-center">Resource Center</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" alt="go to"></li>
@@ -51,8 +51,8 @@ $events = get_terms( [
 			while ( $s_posts->have_posts() ) :
 				$s_posts->the_post();
 			?>
-			<li class="<?= 'special' !== $s->slug ?: 'special' ?>">
-				<a class="<?= 'special' !== $s->slug ?: 'fw-5' ?>" href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+			<li class="<?= 'special' !== $s->slug ? '' : 'special' ?>">
+				<a class="<?= 'special' !== $s->slug ? '' : 'fw-5' ?>" href="<?php the_permalink() ?>"><?php the_title(); ?></a>
 				<img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" alt="go to">
 			</li>
 			<?php endwhile; ?>
