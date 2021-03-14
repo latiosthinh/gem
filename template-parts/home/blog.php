@@ -93,10 +93,7 @@
 
 <section class="home-experts">
 	<div class="container">
-		<h3>
-			Unlock the potentials of Digital technologies <br>
-			to reach new heights
-		</h3>
+		<h3><?= rwmb_meta( 'case_studyies_title', null, get_queried_object_id() ) ?></h3>
 
 		<a class="btn-1 fw-5" href="<?= get_permalink( get_page_by_path( 'about-us' ) ) ?>">
 			<span>

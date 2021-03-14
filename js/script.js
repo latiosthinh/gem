@@ -21,9 +21,9 @@ document.addEventListener( 'DOMContentLoaded', function() {
 		}
 	}
 
-	// if ( window.innerWidth < 992 ) {
-		// header.classList.add( 'sticky' );
-	// }
+	if ( document.querySelector( '.page-template-default' ) ) {
+		header.classList.add( 'sticky' );
+	}
 
 	const searchControl = document.getElementById( 'search-control' );
 	const searchClose   = document.getElementById( 'btn-search-close' );
@@ -43,29 +43,6 @@ document.addEventListener( 'DOMContentLoaded', function() {
 		}
 	})
 
-	/** Carousel */
-	let slideIndex = 1;
-	const slides = document.querySelectorAll( '.gem-item' );
-
-	const showSlides = ( n ) => {
-		slideIndex = n > slides.length ? 1 : ( n < 1 ? slides.length : slideIndex );
-
-		for ( let i = 0; i < slides.length; i++ ) {
-			slides[ i ].style.display = "none";  
-		}
-
-		const dots = document.querySelectorAll( '.dot' );
-		for ( let i = 0; i < dots.length; i++ ) {
-			dots[i].className = dots[i].className.replace(" active", "");
-		}
-
-		slides[ slideIndex - 1 ].style.display = "flex";
-
-		if ( dots.length !== 0 ) {
-			dots[ slideIndex - 1 ].className += " active";
-		}
-	}
-
 	const insdustrySliderWrapper = document.querySelector( '.industry-offer' );
 	const gemPathSliderWrapper   = document.querySelector( '.gem-path' );
 	const gemTestimonial         = document.querySelector( '.home-testimonial' );
@@ -74,6 +51,7 @@ document.addEventListener( 'DOMContentLoaded', function() {
 		new Splide( '.splide', {
 			pagination: true,
 			arrows: true,
+			type   : 'loop',
 			arrowPath: 'M18.4687 1.90735e-05C18.6648 1.90735e-05 18.8609 0.0750809 19.0102 0.224445C19.3097 0.523933 19.3097 1.00802 19.0102 1.30751L2.70148 17.617L19.0102 33.9266C19.3097 34.2261 19.3097 34.7101 19.0102 35.0096C18.7115 35.3091 18.2267 35.3091 17.9272 35.0096L1.07689 18.1586C0.777395 17.8591 0.777395 17.375 1.07689 17.0755L17.9272 0.224445C18.0773 0.0750809 18.2726 1.90735e-05 18.4687 1.90735e-05Z'
 		} ).mount();
 	}
@@ -122,18 +100,14 @@ document.addEventListener( 'DOMContentLoaded', function() {
 		}
 		new Splide( '.splide', options ).mount();
 	}
-	// if ( sliders.length !== 0 ) {
-	// 	sliders.forEach( e  => {
-	// 		new Splide( e ).mount();
-	// 	});
-	// }
 
 	const navControl   = document.getElementById( 'nav-control' );
 	const mainMenu     = document.querySelector( '.main-menu' );
 	const back         = document.querySelectorAll( '.back' );
 	const menuItems    = document.querySelectorAll( '.menu-parent__item' );
+	const menuNoItems  = document.querySelectorAll( '.menu-no__item' );
 	const menuChildren = document.querySelectorAll( '.menu-children' );
-	const closeNav = document.getElementById( 'header-bg' );
+	const closeNav     = document.getElementById( 'header-bg' );
 
 	navControl.addEventListener( 'click', () => {
 		navControl.classList.contains( 'active' ) ? navControl.classList.remove( 'active' ) : navControl.classList.add( 'active' )
@@ -155,7 +129,25 @@ document.addEventListener( 'DOMContentLoaded', function() {
 		header.classList.remove( 'sticky' )
 		mainMenu.classList.remove( 'active' )
 		closeNav.classList.remove( 'active' )
+		menuItems.forEach( e => {
+			e.parentElement.classList.remove( 'active' );
+		} )
+		menuChildren.forEach( e => {
+			e.classList.remove( 'active' );
+		} )
 	});
+
+	menuNoItems.forEach( e => {
+		e.addEventListener( 'mouseenter', () => {
+			menuItems.forEach( e => {
+				e.parentElement.classList.remove( 'active' );
+			} )
+
+			menuChildren.forEach( e => {
+				e.classList.remove( 'active' );
+			} )
+		} )
+	})
 
 	menuItems.forEach( e => {
 		e.addEventListener( 'mouseenter', () => {
@@ -169,11 +161,6 @@ document.addEventListener( 'DOMContentLoaded', function() {
 
 			e.parentElement.classList.add( 'active' )
 			document.getElementById( e.dataset.href ).classList.add( 'active' );
-		} )
-
-		e.addEventListener( 'mouseleave', () => {
-			e.parentElement.classList.remove( 'active' )
-			document.getElementById( e.dataset.href ).classList.remove( 'active' );
 		} )
 
 		e.addEventListener( 'touchstart', ( event ) => {

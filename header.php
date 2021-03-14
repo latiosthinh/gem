@@ -39,7 +39,7 @@
 
 		<nav class="container">
 			<a class="logo" href="<?= home_url() ?>">
-				<img src="<?= NOVUS_IMG . '/logo-blue.png' ?>" alt="<?= bloginfo() ?>">
+				<?php get_template_part( 'template-parts/logo' ); ?>
 			</a>
 
 			<?php novus_breadcrumbs(); ?>

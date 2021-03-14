@@ -67,7 +67,7 @@
 	}
 
 	.seminar-content {
-		@media all and (min-width:1200px) {
+		@media all and (min-width:1100px) {
 			padding-top: 57px;
 			padding-left: 75px;
 		}
@@ -111,6 +111,7 @@
 		img {
 			width: 21px;
 			margin-right: 12px;
+			object-fit: contain;
 		}
 
 		p {
@@ -121,7 +122,7 @@
 
 	&__post {
 		.post-content {
-			@media all and (min-width:1200px) {
+			@media all and (min-width:992px) {
 				padding-top: 57px;
 				padding-right: 75px;
 				padding-bottom: 70px;
@@ -146,13 +147,13 @@
 
 		&:last-of-type {
 			.row {
-				@media all and (min-width:1200px) {
+				@media all and (min-width:992px) {
 					flex-direction: row-reverse;
 				}
 			}
 
 			.post-content {
-				@media all and (min-width:1200px) {
+				@media all and (min-width:992px) {
 					padding-top: 57px;
 					padding-left: 75px;
 				}
@@ -160,6 +161,14 @@
 
 			.thumbnail {
 				right: 0;
+
+				@media all and  (min-width:1101px) and (max-width:1200px) {
+					transform: translateX(-23%);
+				}
+
+				@media all and (max-width:1100px) {
+					transform: translateX(-11%);
+				}
 			}
 		}
 
@@ -225,6 +234,16 @@
 		&:not(:first-child) {
 			h2 {
 				font-size: 20px;
+				@include set-line( 2, 20 );
+
+				@media all and (max-width:1600px) {
+					font-size: 16px;
+					@include set-line( 3, 16 );
+				}
+			}
+
+			p {
+				@include set-line( 4, 12 );
 			}
 		}
 
@@ -285,6 +304,10 @@
 		padding: 40px;
 		color: #000;
 		background: $color-grey;
+
+		@media all and (max-width:991px) {
+			padding: 20px;
+		}
 	}
 	
 	a {
@@ -332,6 +355,7 @@
 		p {
 			width: 70%;
 			margin: 16px auto 40px;
+			@include set-line( 3, 14 );
 		}
 
 		a {
@@ -364,6 +388,10 @@
 		display: flex;
 		justify-content: space-between;
 		flex-wrap: wrap;
+
+		@media all and (min-width:992px) {
+			align-items: center;
+		}
 	}
 
 	.entry-thumbnail {
@@ -401,11 +429,11 @@
 		position: absolute;
 
 		&--prev {
-			left: -40px;
+			left: -60px;
 		}
 
 		&--next {
-			right: -40px;
+			right: -60px;
 			transform: rotate(180deg);
 		}
 	}
@@ -447,6 +475,10 @@
 
 	.gem-form {
 		margin-top: 90px;
+
+		@media all and (max-width:991px) {
+			margin-top: 30px;
+		}
 	}
 
 	.col-6 {

@@ -12,16 +12,29 @@ get_template_part( 'template-parts/service/banner' );
 
 		<div class="row">
 		<?php
-		$blogs = new WP_Query( [
-			'post_type'      => 'post',
-			'posts_per_page' => 3,
-			'category_name'  => 'featured-insights'
-		] );
+		global $wpdb;
 
-		if ( $blogs->have_posts() ) :
-			while( $blogs->have_posts() ) :
-				$blogs->the_post();
-		?>
+		$rls_table = 'mb_relationships';
+		$tables = $wpdb->get_results( "SHOW TABLES" );
+		foreach ( $tables as $table ) {
+			foreach ( $table as $t ) {
+				if ( strpos( $t, 'mb_relationships' ) ) {
+					$rls_table = $t;
+				}
+			}
+		}
+		$rls   = $wpdb->get_results( "SELECT * FROM $rls_table WHERE `to` = $id" );
+		$count = 0;
+		foreach ( $rls as $r ) {
+			$count += 1;
+
+			$pin = new WP_Query( [
+				'post_type'   => 'post',
+				'post_status' => 'publish',
+				'p'           => intval( $r->from ),
+			] );
+			while ( $pin->have_posts() ) : $pin->the_post();
+			?>
 			<div class="col-4">
 				<article class="news-item news--small">
 					<a class="entry-thumbnail" href="<?php the_permalink(); ?>">
@@ -47,10 +60,7 @@ get_template_part( 'template-parts/service/banner' );
 					</div>
 				</article>
 			</div>
-		<?php
-			endwhile;
-		endif;
-		?>
+		<?php endwhile; ?>
 		</div>
 
 		<div class="col-12">

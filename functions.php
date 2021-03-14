@@ -89,7 +89,7 @@ function novus_widgets_init() {
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
 			'after_title'   => '</h2>',
-		],
+		]
 	);
 
 	register_sidebar(
@@ -101,7 +101,7 @@ function novus_widgets_init() {
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
 			'after_title'   => '</h2>',
-		],
+		]
 	);
 }
 add_action( 'widgets_init', 'novus_widgets_init' );
@@ -114,7 +114,6 @@ function novus_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'novus_scripts' );
 
-require get_template_directory() . '/inc/custom-header.php';
 require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/customizer.php';

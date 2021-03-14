@@ -1,5 +1,7 @@
 <?php
 get_header();
+
+while ( have_posts() ) : the_post();
 ?>
 
 <section class="news-banner" style="background:url(<?= get_the_post_thumbnail_url( 'full_url' ) ?>) center center / cover no-repeat">
@@ -101,4 +103,5 @@ get_header();
 </section>
 
 <?php
+endwhile;
 get_footer();

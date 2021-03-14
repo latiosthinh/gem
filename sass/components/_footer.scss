@@ -38,6 +38,10 @@
 		}
 	}
 
+	div.wpcf7 .ajax-loader {
+		display: none;
+	}
+
 	.wpcf7-not-valid-tip {
 		position: absolute;
 		top: 0;
@@ -47,6 +51,8 @@
 		position: absolute;
 		top: 100%;
 		color: #fff;
+		margin-left: 0 !important;
+		margin-right: 0 !important;
 	}
 
 	label {
@@ -126,6 +132,15 @@
 				flex: 0 0 33.3333%;
 				list-style: none;
 				margin-bottom: 40px;
+				display: inline-flex;
+
+				&:nth-child(3n+2) {
+					justify-content: center;
+				}
+
+				&:nth-child(3n+3) {
+					justify-content: flex-end;
+				}
 			}
 
 			a {

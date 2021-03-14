@@ -25,75 +25,87 @@ $post_slug = $post->post_name;
 		<h2>Insights</h2>
 		<div class="row">
 		<?php
-		$pin = new WP_Query( [
-			'post_type'      => 'post',
-			'posts_per_page' => 1,
-		] );
+		global $wpdb;
 
-		while ( $pin->have_posts() ) : $pin->the_post();
-		?>
-			<div class="col-12">
-				<article class="style-3">
-					<a class="entry-thumbnail" href="<?php the_permalink(); ?>">
-						<?= the_post_thumbnail( 'full' ) ?>
-					</a>
+		$rls_table = 'mb_relationships';
+		$tables = $wpdb->get_results( "SHOW TABLES" );
+		foreach ( $tables as $table ) {
+			foreach ( $table as $t ) {
+				if ( strpos( $t, 'mb_relationships' ) ) {
+					$rls_table = $t;
+				}
+			}
+		}
+		$rls        = $wpdb->get_results( "SELECT * FROM $rls_table WHERE `to` = $id" );
+		$count = 0;
+		foreach ( $rls as $r ) {
+			$count += 1;
 
-					<div class="entry-title">
-						<div class="post-tags">
-						<?php
-						$tags = get_the_terms( get_the_ID(), 'post_tag' );
+			$pin = new WP_Query( [
+				'post_type'   => 'post',
+				'post_status' => 'publish',
+				'p'           => intval( $r->from ),
+			] );
+			while ( $pin->have_posts() ) : $pin->the_post();
+				if ( $count < 2 ) {
+				?>
+					<div class="col-12">
+						<article class="style-3" id="<?= get_the_ID() ?>">
+							<a class="entry-thumbnail" href="<?php the_permalink(); ?>">
+								<?= the_post_thumbnail( 'full' ) ?>
+							</a>
 
-						foreach ( $tags as $t ) :
-						?>
-							<a href="<?= get_term_link( $t->term_id ) ?>"><?= $t->name ?></a>
-						<?php endforeach; ?>
-						</div>
+							<div class="entry-title">
+								<div class="post-tags">
+								<?php
+								$tags = get_the_terms( get_the_ID(), 'post_tag' );
 
-						<a href="<?php the_permalink(); ?>">
-							<h3 class="h4 fw-5"><?= get_the_title() ?></h3>
-						</a>
-						<?php the_excerpt(); ?>
+								foreach ( $tags as $t ) :
+								?>
+									<a href="<?= get_term_link( $t->term_id ) ?>"><?= $t->name ?></a>
+								<?php endforeach; ?>
+								</div>
+
+								<a href="<?php the_permalink(); ?>">
+									<h3 class="h4 fw-5"><?= get_the_title() ?></h3>
+								</a>
+								<?php the_excerpt(); ?>
+							</div>
+						</article>
 					</div>
-				</article>
-			</div>
-		<?php endwhile; ?>
+				<?php
+				} // endif
+				else {
+				?>
+					<div class="col-4">
+						<article class="style-1">
+							<a class="entry-thumbnail" href="<?php the_permalink(); ?>">
+								<?= the_post_thumbnail( 'full' ) ?>
+							</a>
 
-		<?php
-		$pin = new WP_Query( [
-			'post_type'      => 'post',
-			'posts_per_page' => 3,
-			'offset'         => 1
-		] );
+							<div class="entry-title">
+								<div class="post-tags">
+								<?php
+								$tags = get_the_terms( get_the_ID(), 'post_tag' );
 
-		while ( $pin->have_posts() ) : $pin->the_post();
-		?>
-			<div class="col-4">
-				<article class="style-1">
-					<a class="entry-thumbnail" href="<?php the_permalink(); ?>">
-						<?= the_post_thumbnail( 'full' ) ?>
-					</a>
+								foreach ( $tags as $t ) :
+								?>
+									<a href="<?= get_term_link( $t->term_id ) ?>"><?= $t->name ?></a>
+								<?php endforeach; ?>
+								</div>
 
-					<div class="entry-title">
-						<div class="post-tags">
-						<?php
-						$tags = get_the_terms( get_the_ID(), 'post_tag' );
-
-						foreach ( $tags as $t ) :
-						?>
-							<a href="<?= get_term_link( $t->term_id ) ?>"><?= $t->name ?></a>
-						<?php endforeach; ?>
-						</div>
-
-						<a href="<?php the_permalink(); ?>">
-							<h3 class="h4 fw-5"><?= get_the_title() ?></h3>
-							<?php the_excerpt(); ?>
-						</a>
+								<a href="<?php the_permalink(); ?>">
+									<h3 class="h4 fw-5"><?= get_the_title() ?></h3>
+									<?php the_excerpt(); ?>
+								</a>
+							</div>
+						</article>
 					</div>
-				</article>
-			</div>
-		<?php
-		endwhile;
-		wp_reset_postdata();
+				<?php
+				}
+			endwhile;
+			wp_reset_postdata();
+		}
 		?>
 		</div>
 	</div>
@@ -178,24 +190,18 @@ $post_slug = $post->post_name;
 				<div class="splide">
 					<div class="splide__track">
 						<div class="splide__list">
-							<div class="splide__slide offer-content">
-								<h3><?= rwmb_meta( 'offer_1_title', null, $id ); ?></h3>
-								<p><?= rwmb_meta( 'offer_1_content', null, $id ) ?></p>
+							<?php
+							$offer_items = rwmb_meta( 'offer_item', null, $id );
 
-								<img src="<?= rwmb_meta( 'offer_1_image', null, $id )[ 'full_url' ]; ?>" alt="<?= rwmb_meta( 'offer_1_title', null, $id ); ?>">
-							</div>
+							foreach ( $offer_items as $item ) :
+							?>
 							<div class="splide__slide offer-content">
-								<h3><?= rwmb_meta( 'offer_2_title', null, $id ) ?></h3>
-								<p><?= rwmb_meta( 'offer_2_content', null, $id ) ?></p>
+								<h3><?= $item[ 'title' ]; ?></h3>
+								<p><?= $item[ 'content' ] ?></p>
 
-								<img src="<?= rwmb_meta( 'offer_1_image', null, $id )[ 'full_url' ]; ?>" alt="<?= rwmb_meta( 'offer_2_title', null, $id ); ?>">
+								<img src="<?= wp_get_attachment_url( $item[ 'image' ] ); ?>" alt="<?= $item[ 'title' ]; ?>">
 							</div>
-							<div class="splide__slide offer-content">
-								<h3><?= rwmb_meta( 'offer_3_title', null, $id ) ?></h3>
-								<p><?= rwmb_meta( 'offer_3_content', null, $id ) ?></p>
-
-								<img src="<?= rwmb_meta( 'offer_1_image', null, $id )[ 'full_url' ]; ?>" alt="<?= rwmb_meta( 'offer_3_title', null, $id ); ?>">
-							</div>
+							<?php endforeach; ?>
 						</div>
 					</div>
 				</div>

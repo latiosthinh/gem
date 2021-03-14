@@ -218,6 +218,9 @@ function novus_breadcrumbs( $args = '' ) {
 	$item_tpl_link = $args['before_item'] . '
 		<a href="%s" itemprop="url"><span itemprop="title">%s</span></a>
 	' . $args['after_item'];
+	$item_no_tpl_link = $args['before_item'] . '
+		<a><span itemprop="title">%s</span></a>
+	' . $args['after_item'];
 	$item_text_tpl = $args['before_item'] . '
 		<span itemprop="title">%s</span>
 	' . $args['after_item'];
@@ -254,7 +257,7 @@ function novus_breadcrumbs( $args = '' ) {
 		if ( 'post' !== $post_type ) {
 			$post_type_object       = get_post_type_object( $post_type );
 			$post_type_archive_link = get_post_type_archive_link( $post_type );
-			$items[]                = sprintf( $item_tpl_link, $post_type_archive_link, $post_type_object->labels->menu_name );
+			$items[]                = sprintf( $item_no_tpl_link, $post_type_object->labels->menu_name );
 		}
 		// Terms.
 		$terms = get_the_terms( get_the_ID(), $args['taxonomy'] );

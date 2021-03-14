@@ -15,8 +15,8 @@
 		<div class="container">
 			<div class="row newsletter">
 				<div class="col-6 clw">
-					<h3>Newsletter subcription</h3>
-					<p>Get the lastest insights and new tech event straight to your inbox</p>
+					<h3>Newsletter subscription</h3>
+					<p>Get the latest insights and new tech event straight to your inbox</p>
 				</div>
 
 				<div class="col-6">
@@ -34,8 +34,8 @@
 
 					<p class="social">
 						Connect to us via:
-						<a href=""><img src="<?= NOVUS_IMG . '/linkedin.svg' ?>" alt="Gem"></a>
-						<a href=""><img src="<?= NOVUS_IMG . '/facebook.svg' ?>" alt="Gem"></a>
+						<a href="https://www.facebook.com/gemvietnam/" target="_blank"><img src="<?= NOVUS_IMG . '/linkedin.svg' ?>" alt="Gem Facebook"></a>
+						<a href="https://www.linkedin.com/company/gemcorporation/" target="_blank"><img src="<?= NOVUS_IMG . '/facebook.svg' ?>" alt="Gem LinkedIn"></a>
 					</p>
 				</div>
 

@@ -75,7 +75,7 @@
 	width: 36px;
 	height: 35px;
 	position: fixed;
-	top: 30px;
+	top: 25px;
 	left: 20px;
 	z-index: 20;
 	cursor: pointer;
@@ -316,10 +316,6 @@
 
 		&:not(:last-of-type) {
 			li {
-				&:first-child {
-					flex: 0 0 20%;
-				}
-
 				margin-right: 40px;
 
 				@media all and (max-width:991px) {
@@ -400,6 +396,30 @@
 	}
 }
 
+#menu-services {
+	ul:not(:last-of-type) {
+		li {
+			margin-right: 50px;
+
+			&:nth-of-type(2) {
+				flex: 0 0 20%;
+				margin-right: 10px;
+			}
+
+			&:first-of-type {
+				flex: 0 0 15%;
+			}
+	
+			@media all and (max-width:991px) {
+				margin-top: 30px;
+			}
+		}
+	}
+	a {
+		white-space: nowrap;
+	}
+}
+
 #menu-case-studies {
 	ul {
 		&:first-of-type {
@@ -407,7 +427,7 @@
 			margin-top: 0;
 
 			li {
-				min-width: 175px;
+				flex: 0 0 20%;
 				margin-right: 20px;
 				margin-top: 40px;
 

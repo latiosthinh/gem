@@ -71,12 +71,17 @@
 		position: relative;
 		color: #fff;
 		padding: 20px 40px 60px;
-		min-height: 400px;
+		height: 460px;
 		overflow: hidden;
+
+		@media all and (max-width:1499px) {
+			height: 400px;
+			padding: 20px;
+		}
 
 		@media all and (max-width:991px) {
 			padding: 60px 10px;
-			min-height: 350px;
+			height: 350px;
 			margin-bottom: 20px;
 		}
 

@@ -38,7 +38,7 @@
 		color: #888;
 	}
 
-	.news--big {
+	&.news--big {
 		display: flex;
 
 		@media all and (max-width:991px) {
@@ -76,7 +76,7 @@
 		}
 	}
 
-	.news--small {
+	&.news--small {
 		img {
 			height: 280px;
 		}

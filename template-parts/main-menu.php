@@ -18,11 +18,11 @@ $events = get_terms( [
 		<ul class="container">
 			<li><a class="menu-parent__item" data-href="menu-services">Services</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" alt="go to"></li>
 			<li><a class="menu-parent__item" data-href="menu-case-studies">Industries</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" alt="go to"></li>
-			<li><a class="menu-parent__item" data-href="menu-event">News</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" alt="go to"></li>
+			<li><a class="menu-parent__item" data-href="menu-event">Newsroom</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" alt="go to"></li>
 			<li><a class="menu-parent__item" data-href="menu-resource-center">Resource Center</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" alt="go to"></li>
-			<li><a href="<?= get_permalink( get_page_by_path( 'careers' ) ) ?>">Career</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" alt="go to"></li>
-			<li><a href="<?= get_permalink( get_page_by_path( 'about-us' ) ) ?>">About Us</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" alt="go to"></li>
-			<li><a href="<?= get_permalink( get_page_by_path( 'contact-us' ) ) ?>">Contact Us</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" alt="go to"></li>
+			<li><a class="menu-no__item" href="<?= get_permalink( get_page_by_path( 'careers' ) ) ?>">Career</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" alt="go to"></li>
+			<li><a class="menu-no__item" href="<?= get_permalink( get_page_by_path( 'about-us' ) ) ?>">About Us</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" alt="go to"></li>
+			<li><a class="menu-no__item" href="<?= get_permalink( get_page_by_path( 'contact-us' ) ) ?>">Contact Us</a><img src="<?= NOVUS_IMG . '/arrow-right-cyan.svg' ?>" alt="go to"></li>
 		</ul>
 	</div>
 

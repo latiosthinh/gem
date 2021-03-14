@@ -1,14 +1,8 @@
 <section class="home-service-header">
 	<div class="container">
-		<h2>
-		We are committed to take your business <br>
-		in leaps and bounds
-		</h2>
+		<h2><?= rwmb_meta( 'service_title' ) ?></h2>
 
-		<p>
-		Magna diam facilisis scelerisque et aliquam orci condimentum. Ultricies at pellentesque <br>
-		risus risus, lorem sed. Arcu, malesuada laoreet urna id turpis consequat.
-		</p>
+		<p><?= rwmb_meta( 'service_desc' ) ?></p>
 	</div>
 </section>
 
@@ -39,7 +33,7 @@
 				<h3><?= wordwrap( get_the_title(), 25, "<br>\n" ) ?></h3>
 				<p><?= get_the_excerpt() ?></p>
 
-				<a class="fw-5 cldark d-flex align-center" href="#">
+				<a class="fw-5 cldark d-flex align-center" href="<?php the_permalink(); ?>">
 					Request a demo
 					<img class="arrow-r" src="<?=  NOVUS_IMG . '/arrow-right-blue.svg' ?>" alt="request">
 				</a>
